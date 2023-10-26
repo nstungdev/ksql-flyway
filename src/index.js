@@ -3,8 +3,8 @@ const ENV = require('./config.json');
 const { Constants } = require('./constants');
 
 // services
-const { KsqlService } = require('./services/ksqlService');
-const { FileService } = require('./services/fileService');
+const { KsqlService } = require('./services/ksql-service');
+const { FileService } = require('./services/file-service');
 
 // main method
 main(Constants.StreamType, 0).then(r => console.log('DONE!'));
