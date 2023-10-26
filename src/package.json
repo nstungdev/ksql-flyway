@@ -1,0 +1,15 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "Migrate ksql resource tools",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Nguyen-Son-Tung",
+  "license": "ISC",
+  "dependencies": {
+    "ksqldb-js": "^1.1.2"
+  }
+}
