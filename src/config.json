@@ -1,0 +1,5 @@
+{
+    "KsqlUrl": "http://localhost:8088",
+    "SourceType": "stream",
+    "SourcePath": "data-source/streams.json"
+}
