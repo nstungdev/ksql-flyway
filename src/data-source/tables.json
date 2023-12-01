@@ -1,0 +1,4490 @@
+[
+  {
+    "name": "TABLE_CLUSTER",
+    "windowType": null,
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE OR REPLACE TABLE TABLE_CLUSTER WITH (KAFKA_TOPIC='TABLE_CLUSTER', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_CLUSTER.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_CLUSTER.AFTER->NAME, true) NAME,\n  (((LATEST_BY_OFFSET(STREAM_CLUSTER.AFTER->NAME, true) + ' (') + LATEST_BY_OFFSET(STREAM_CLUSTER.AFTER->ID, true)) + ')') SHORTDESCRIPTION\nFROM STREAM_CLUSTER STREAM_CLUSTER\nGROUP BY STREAM_CLUSTER.AFTER->ID\nEMIT CHANGES;",
+        "sinks": [
+          "TABLE_CLUSTER"
+        ],
+        "sinkKafkaTopics": [
+          "TABLE_CLUSTER"
+        ],
+        "id": "CTAS_TABLE_CLUSTER_161",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "ID_1",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "NAME",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "SHORTDESCRIPTION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "TABLE_CLUSTER",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE OR REPLACE TABLE TABLE_CLUSTER WITH (KAFKA_TOPIC='TABLE_CLUSTER', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_CLUSTER.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_CLUSTER.AFTER->NAME, true) NAME,\n  (((LATEST_BY_OFFSET(STREAM_CLUSTER.AFTER->NAME, true) + ' (') + LATEST_BY_OFFSET(STREAM_CLUSTER.AFTER->ID, true)) + ')') SHORTDESCRIPTION\nFROM STREAM_CLUSTER STREAM_CLUSTER\nGROUP BY STREAM_CLUSTER.AFTER->ID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_CLUSTER_161",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_CLUSTER_161-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 1125,
+                "logEndOffset": 1125,
+                "consumerOffset": 1125
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.Cluster",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 1114,
+                "logEndOffset": 1114,
+                "consumerOffset": 1114
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "TABLE_ECODE",
+    "windowType": null,
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE OR REPLACE TABLE TABLE_ECODE WITH (KAFKA_TOPIC='TABLE_ECODE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_ECODE.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_ECODE.AFTER->CODE, true) CODE,\n  LATEST_BY_OFFSET(STREAM_ECODE.AFTER->CODE, true) SHORTDESCRIPTION\nFROM STREAM_ECODE STREAM_ECODE\nGROUP BY STREAM_ECODE.AFTER->ID\nEMIT CHANGES;",
+        "sinks": [
+          "TABLE_ECODE"
+        ],
+        "sinkKafkaTopics": [
+          "TABLE_ECODE"
+        ],
+        "id": "CTAS_TABLE_ECODE_163",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "ID_1",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "CODE",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "SHORTDESCRIPTION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "TABLE_ECODE",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE OR REPLACE TABLE TABLE_ECODE WITH (KAFKA_TOPIC='TABLE_ECODE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_ECODE.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_ECODE.AFTER->CODE, true) CODE,\n  LATEST_BY_OFFSET(STREAM_ECODE.AFTER->CODE, true) SHORTDESCRIPTION\nFROM STREAM_ECODE STREAM_ECODE\nGROUP BY STREAM_ECODE.AFTER->ID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_ECODE_163",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.ECode",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 284,
+                "logEndOffset": 285,
+                "consumerOffset": 285
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_ECODE_163-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 331,
+                "logEndOffset": 331,
+                "consumerOffset": 331
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "TABLE_POPCONSTRUCTIONPHASE",
+    "windowType": null,
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE OR REPLACE TABLE TABLE_POPCONSTRUCTIONPHASE WITH (KAFKA_TOPIC='TABLE_POPCONSTRUCTIONPHASE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_POPCONSTRUCTIONPHASE.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_POPCONSTRUCTIONPHASE.AFTER->NAME, true) NAME,\n  (((LATEST_BY_OFFSET(STREAM_POPCONSTRUCTIONPHASE.AFTER->NAME, true) + ' (') + LATEST_BY_OFFSET(STREAM_POPCONSTRUCTIONPHASE.AFTER->ID, true)) + ')') SHORTDESCRIPTION\nFROM STREAM_POPCONSTRUCTIONPHASE STREAM_POPCONSTRUCTIONPHASE\nGROUP BY STREAM_POPCONSTRUCTIONPHASE.AFTER->ID\nEMIT CHANGES;",
+        "sinks": [
+          "TABLE_POPCONSTRUCTIONPHASE"
+        ],
+        "sinkKafkaTopics": [
+          "TABLE_POPCONSTRUCTIONPHASE"
+        ],
+        "id": "CTAS_TABLE_POPCONSTRUCTIONPHASE_175",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "ID_1",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "NAME",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "SHORTDESCRIPTION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "TABLE_POPCONSTRUCTIONPHASE",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE OR REPLACE TABLE TABLE_POPCONSTRUCTIONPHASE WITH (KAFKA_TOPIC='TABLE_POPCONSTRUCTIONPHASE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_POPCONSTRUCTIONPHASE.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_POPCONSTRUCTIONPHASE.AFTER->NAME, true) NAME,\n  (((LATEST_BY_OFFSET(STREAM_POPCONSTRUCTIONPHASE.AFTER->NAME, true) + ' (') + LATEST_BY_OFFSET(STREAM_POPCONSTRUCTIONPHASE.AFTER->ID, true)) + ')') SHORTDESCRIPTION\nFROM STREAM_POPCONSTRUCTIONPHASE STREAM_POPCONSTRUCTIONPHASE\nGROUP BY STREAM_POPCONSTRUCTIONPHASE.AFTER->ID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_POPCONSTRUCTIONPHASE_175",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.POPConstructionPhase",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 76,
+                "logEndOffset": 76,
+                "consumerOffset": 76
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_POPCONSTRUCTIONPHASE_175-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 76,
+                "logEndOffset": 76,
+                "consumerOffset": 76
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "TABLE_PARTNER",
+    "windowType": null,
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE OR REPLACE TABLE TABLE_PARTNER WITH (KAFKA_TOPIC='TABLE_PARTNER', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_PARTNERS.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_PARTNERS.AFTER->NAME, true) NAME,\n  LATEST_BY_OFFSET(STREAM_PARTNERS.AFTER->TYPE, true) TYPE\nFROM STREAM_PARTNERS STREAM_PARTNERS\nGROUP BY STREAM_PARTNERS.AFTER->ID\nEMIT CHANGES;",
+        "sinks": [
+          "TABLE_PARTNER"
+        ],
+        "sinkKafkaTopics": [
+          "TABLE_PARTNER"
+        ],
+        "id": "CTAS_TABLE_PARTNER_305",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "ID_1",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "NAME",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "TYPE",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "TABLE_PARTNER",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE OR REPLACE TABLE TABLE_PARTNER WITH (KAFKA_TOPIC='TABLE_PARTNER', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_PARTNERS.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_PARTNERS.AFTER->NAME, true) NAME,\n  LATEST_BY_OFFSET(STREAM_PARTNERS.AFTER->TYPE, true) TYPE\nFROM STREAM_PARTNERS STREAM_PARTNERS\nGROUP BY STREAM_PARTNERS.AFTER->ID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_PARTNER_305",
+        "topicSummaries": []
+      }
+    ]
+  },
+  {
+    "name": "TABLE_GCODE",
+    "windowType": null,
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE OR REPLACE TABLE TABLE_GCODE WITH (KAFKA_TOPIC='TABLE_GCODE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_GCODE.AFTER->ID GCODEID,\n  LATEST_BY_OFFSET(STREAM_GCODE.AFTER->CODE, true) CODE,\n  LATEST_BY_OFFSET(STREAM_GCODE.AFTER->CODE, true) SHORTDESCRIPTION\nFROM STREAM_GCODE STREAM_GCODE\nGROUP BY STREAM_GCODE.AFTER->ID\nEMIT CHANGES;",
+        "sinks": [
+          "TABLE_GCODE"
+        ],
+        "sinkKafkaTopics": [
+          "TABLE_GCODE"
+        ],
+        "id": "CTAS_TABLE_GCODE_167",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "GCODEID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "CODE",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "SHORTDESCRIPTION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "TABLE_GCODE",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE OR REPLACE TABLE TABLE_GCODE WITH (KAFKA_TOPIC='TABLE_GCODE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_GCODE.AFTER->ID GCODEID,\n  LATEST_BY_OFFSET(STREAM_GCODE.AFTER->CODE, true) CODE,\n  LATEST_BY_OFFSET(STREAM_GCODE.AFTER->CODE, true) SHORTDESCRIPTION\nFROM STREAM_GCODE STREAM_GCODE\nGROUP BY STREAM_GCODE.AFTER->ID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_GCODE_167",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.GCode",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 439,
+                "logEndOffset": 439,
+                "consumerOffset": 439
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_GCODE_167-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 407,
+                "logEndOffset": 407,
+                "consumerOffset": 407
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "TABLE_POPHOUSINGTYPE",
+    "windowType": null,
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE OR REPLACE TABLE TABLE_POPHOUSINGTYPE WITH (KAFKA_TOPIC='TABLE_POPHOUSINGTYPE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_POPHOUSINGTYPE.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_POPHOUSINGTYPE.AFTER->DESCRIPTION, true) DESCRIPTION,\n  (((LATEST_BY_OFFSET(STREAM_POPHOUSINGTYPE.AFTER->DESCRIPTION, true) + ' (') + LATEST_BY_OFFSET(STREAM_POPHOUSINGTYPE.AFTER->ID, true)) + ')') SHORTDESCRIPTION\nFROM STREAM_POPHOUSINGTYPE STREAM_POPHOUSINGTYPE\nGROUP BY STREAM_POPHOUSINGTYPE.AFTER->ID\nEMIT CHANGES;",
+        "sinks": [
+          "TABLE_POPHOUSINGTYPE"
+        ],
+        "sinkKafkaTopics": [
+          "TABLE_POPHOUSINGTYPE"
+        ],
+        "id": "CTAS_TABLE_POPHOUSINGTYPE_177",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "ID_1",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "DESCRIPTION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "SHORTDESCRIPTION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "TABLE_POPHOUSINGTYPE",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE OR REPLACE TABLE TABLE_POPHOUSINGTYPE WITH (KAFKA_TOPIC='TABLE_POPHOUSINGTYPE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_POPHOUSINGTYPE.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_POPHOUSINGTYPE.AFTER->DESCRIPTION, true) DESCRIPTION,\n  (((LATEST_BY_OFFSET(STREAM_POPHOUSINGTYPE.AFTER->DESCRIPTION, true) + ' (') + LATEST_BY_OFFSET(STREAM_POPHOUSINGTYPE.AFTER->ID, true)) + ')') SHORTDESCRIPTION\nFROM STREAM_POPHOUSINGTYPE STREAM_POPHOUSINGTYPE\nGROUP BY STREAM_POPHOUSINGTYPE.AFTER->ID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_POPHOUSINGTYPE_177",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_POPHOUSINGTYPE_177-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 45,
+                "logEndOffset": 45,
+                "consumerOffset": 45
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.POPHousingType",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 45,
+                "logEndOffset": 45,
+                "consumerOffset": 45
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "TABLE_AREATYPE",
+    "windowType": null,
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE OR REPLACE TABLE TABLE_AREATYPE WITH (KAFKA_TOPIC='TABLE_AREATYPE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_AREATYPE.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_AREATYPE.AFTER->DESCRIPTION, true) DESCRIPTION,\n  (((LATEST_BY_OFFSET(STREAM_AREATYPE.AFTER->DESCRIPTION, true) + ' (') + LATEST_BY_OFFSET(STREAM_AREATYPE.AFTER->ID, true)) + ')') SHORTDESCRIPTION\nFROM STREAM_AREATYPE STREAM_AREATYPE\nGROUP BY STREAM_AREATYPE.AFTER->ID\nEMIT CHANGES;",
+        "sinks": [
+          "TABLE_AREATYPE"
+        ],
+        "sinkKafkaTopics": [
+          "TABLE_AREATYPE"
+        ],
+        "id": "CTAS_TABLE_AREATYPE_159",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "ID_1",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "DESCRIPTION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "SHORTDESCRIPTION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "TABLE_AREATYPE",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE OR REPLACE TABLE TABLE_AREATYPE WITH (KAFKA_TOPIC='TABLE_AREATYPE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_AREATYPE.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_AREATYPE.AFTER->DESCRIPTION, true) DESCRIPTION,\n  (((LATEST_BY_OFFSET(STREAM_AREATYPE.AFTER->DESCRIPTION, true) + ' (') + LATEST_BY_OFFSET(STREAM_AREATYPE.AFTER->ID, true)) + ')') SHORTDESCRIPTION\nFROM STREAM_AREATYPE STREAM_AREATYPE\nGROUP BY STREAM_AREATYPE.AFTER->ID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_AREATYPE_159",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_AREATYPE_159-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 23,
+                "logEndOffset": 23,
+                "consumerOffset": 23
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.AreaType",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 20,
+                "logEndOffset": 20,
+                "consumerOffset": 20
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "TABLE_FIBERRENTALTYPE",
+    "windowType": null,
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE OR REPLACE TABLE TABLE_FIBERRENTALTYPE WITH (KAFKA_TOPIC='TABLE_FIBERRENTALTYPE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_FIBERRENTALTYPE.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_FIBERRENTALTYPE.AFTER->FIBERRENTALTYPE, true) FIBERRENTALTYPE,\n  LATEST_BY_OFFSET(STREAM_FIBERRENTALTYPE.AFTER->FIBERRENTALTYPE, true) SHORTDESCRIPTION\nFROM STREAM_FIBERRENTALTYPE STREAM_FIBERRENTALTYPE\nGROUP BY STREAM_FIBERRENTALTYPE.AFTER->ID\nEMIT CHANGES;",
+        "sinks": [
+          "TABLE_FIBERRENTALTYPE"
+        ],
+        "sinkKafkaTopics": [
+          "TABLE_FIBERRENTALTYPE"
+        ],
+        "id": "CTAS_TABLE_FIBERRENTALTYPE_165",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "ID_1",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "FIBERRENTALTYPE",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "SHORTDESCRIPTION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "TABLE_FIBERRENTALTYPE",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE OR REPLACE TABLE TABLE_FIBERRENTALTYPE WITH (KAFKA_TOPIC='TABLE_FIBERRENTALTYPE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_FIBERRENTALTYPE.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_FIBERRENTALTYPE.AFTER->FIBERRENTALTYPE, true) FIBERRENTALTYPE,\n  LATEST_BY_OFFSET(STREAM_FIBERRENTALTYPE.AFTER->FIBERRENTALTYPE, true) SHORTDESCRIPTION\nFROM STREAM_FIBERRENTALTYPE STREAM_FIBERRENTALTYPE\nGROUP BY STREAM_FIBERRENTALTYPE.AFTER->ID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_FIBERRENTALTYPE_165",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.FiberRentalType",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 12,
+                "logEndOffset": 12,
+                "consumerOffset": 12
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_FIBERRENTALTYPE_165-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 15,
+                "logEndOffset": 15,
+                "consumerOffset": 15
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "TABLE_CONSTRUCTIONORDER",
+    "windowType": null,
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE OR REPLACE TABLE TABLE_CONSTRUCTIONORDER WITH (KAFKA_TOPIC='TABLE_CONSTRUCTIONORDER', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_CONSTRUCTIONORDER.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_CONSTRUCTIONORDER.AFTER->CODE, true) CODE,\n  LATEST_BY_OFFSET(STREAM_CONSTRUCTIONORDER.AFTER->SHORTNAME, true) SHORTNAME,\n  (((LATEST_BY_OFFSET(STREAM_CONSTRUCTIONORDER.AFTER->SHORTNAME, true) + ' (') + LATEST_BY_OFFSET(STREAM_CONSTRUCTIONORDER.AFTER->CODE, true)) + ')') SHORTDESCRIPTION\nFROM STREAM_CONSTRUCTIONORDER STREAM_CONSTRUCTIONORDER\nGROUP BY STREAM_CONSTRUCTIONORDER.AFTER->ID\nEMIT CHANGES;",
+        "sinks": [
+          "TABLE_CONSTRUCTIONORDER"
+        ],
+        "sinkKafkaTopics": [
+          "TABLE_CONSTRUCTIONORDER"
+        ],
+        "id": "CTAS_TABLE_CONSTRUCTIONORDER_771",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "ID_1",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "CODE",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "SHORTNAME",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "SHORTDESCRIPTION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "TABLE_CONSTRUCTIONORDER",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE OR REPLACE TABLE TABLE_CONSTRUCTIONORDER WITH (KAFKA_TOPIC='TABLE_CONSTRUCTIONORDER', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_CONSTRUCTIONORDER.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_CONSTRUCTIONORDER.AFTER->CODE, true) CODE,\n  LATEST_BY_OFFSET(STREAM_CONSTRUCTIONORDER.AFTER->SHORTNAME, true) SHORTNAME,\n  (((LATEST_BY_OFFSET(STREAM_CONSTRUCTIONORDER.AFTER->SHORTNAME, true) + ' (') + LATEST_BY_OFFSET(STREAM_CONSTRUCTIONORDER.AFTER->CODE, true)) + ')') SHORTDESCRIPTION\nFROM STREAM_CONSTRUCTIONORDER STREAM_CONSTRUCTIONORDER\nGROUP BY STREAM_CONSTRUCTIONORDER.AFTER->ID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_CONSTRUCTIONORDER_771",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.ConstructionOrder",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 3904,
+                "logEndOffset": 3905,
+                "consumerOffset": 3905
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_CONSTRUCTIONORDER_771-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 2041,
+                "logEndOffset": 2041,
+                "consumerOffset": 2041
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "TABLE_CONSTRUCTIONORDERSTATUS",
+    "windowType": null,
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE OR REPLACE TABLE TABLE_CONSTRUCTIONORDERSTATUS WITH (KAFKA_TOPIC='TABLE_CONSTRUCTIONORDERSTATUS', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_CONSTRUCTIONORDERSTATUS.AFTER->CODE ID,\n  (((LATEST_BY_OFFSET(STREAM_CONSTRUCTIONORDERSTATUS.AFTER->DESCRIPTION_DUTCH, true) + ' (') + LATEST_BY_OFFSET(STREAM_CONSTRUCTIONORDERSTATUS.AFTER->CODE, true)) + ')') SHORTDESCRIPTION\nFROM STREAM_CONSTRUCTIONORDERSTATUS STREAM_CONSTRUCTIONORDERSTATUS\nGROUP BY STREAM_CONSTRUCTIONORDERSTATUS.AFTER->CODE\nEMIT CHANGES;",
+        "sinks": [
+          "TABLE_CONSTRUCTIONORDERSTATUS"
+        ],
+        "sinkKafkaTopics": [
+          "TABLE_CONSTRUCTIONORDERSTATUS"
+        ],
+        "id": "CTAS_TABLE_CONSTRUCTIONORDERSTATUS_173",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "ID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "SHORTDESCRIPTION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "TABLE_CONSTRUCTIONORDERSTATUS",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE OR REPLACE TABLE TABLE_CONSTRUCTIONORDERSTATUS WITH (KAFKA_TOPIC='TABLE_CONSTRUCTIONORDERSTATUS', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_CONSTRUCTIONORDERSTATUS.AFTER->CODE ID,\n  (((LATEST_BY_OFFSET(STREAM_CONSTRUCTIONORDERSTATUS.AFTER->DESCRIPTION_DUTCH, true) + ' (') + LATEST_BY_OFFSET(STREAM_CONSTRUCTIONORDERSTATUS.AFTER->CODE, true)) + ')') SHORTDESCRIPTION\nFROM STREAM_CONSTRUCTIONORDERSTATUS STREAM_CONSTRUCTIONORDERSTATUS\nGROUP BY STREAM_CONSTRUCTIONORDERSTATUS.AFTER->CODE\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_CONSTRUCTIONORDERSTATUS_173",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_CONSTRUCTIONORDERSTATUS_173-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 20,
+                "logEndOffset": 20,
+                "consumerOffset": 20
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.ConstructionOrderStatus",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 16,
+                "logEndOffset": 16,
+                "consumerOffset": 16
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "TABLE_COMMERCIALPROVIDER",
+    "windowType": null,
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE OR REPLACE TABLE TABLE_COMMERCIALPROVIDER WITH (KAFKA_TOPIC='TABLE_COMMERCIALPROVIDER', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_COMMERCIALPROVIDER.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_COMMERCIALPROVIDER.AFTER->NAME, true) NAME,\n  LATEST_BY_OFFSET(STREAM_COMMERCIALPROVIDER.AFTER->ALIAS, true) ALIAS,\n  LATEST_BY_OFFSET(STREAM_COMMERCIALPROVIDER.AFTER->NAME, true) SHORTDESCRIPTION\nFROM STREAM_COMMERCIALPROVIDER STREAM_COMMERCIALPROVIDER\nGROUP BY STREAM_COMMERCIALPROVIDER.AFTER->ID\nEMIT CHANGES;",
+        "sinks": [
+          "TABLE_COMMERCIALPROVIDER"
+        ],
+        "sinkKafkaTopics": [
+          "TABLE_COMMERCIALPROVIDER"
+        ],
+        "id": "CTAS_TABLE_COMMERCIALPROVIDER_853",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "ID_1",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "NAME",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "ALIAS",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "SHORTDESCRIPTION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "TABLE_COMMERCIALPROVIDER",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE OR REPLACE TABLE TABLE_COMMERCIALPROVIDER WITH (KAFKA_TOPIC='TABLE_COMMERCIALPROVIDER', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_COMMERCIALPROVIDER.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_COMMERCIALPROVIDER.AFTER->NAME, true) NAME,\n  LATEST_BY_OFFSET(STREAM_COMMERCIALPROVIDER.AFTER->ALIAS, true) ALIAS,\n  LATEST_BY_OFFSET(STREAM_COMMERCIALPROVIDER.AFTER->NAME, true) SHORTDESCRIPTION\nFROM STREAM_COMMERCIALPROVIDER STREAM_COMMERCIALPROVIDER\nGROUP BY STREAM_COMMERCIALPROVIDER.AFTER->ID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_COMMERCIALPROVIDER_853",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_COMMERCIALPROVIDER_853-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 119,
+                "logEndOffset": 119,
+                "consumerOffset": 119
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.CommercialProvider",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 149,
+                "logEndOffset": 197,
+                "consumerOffset": 197
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "TABLE_ROLE",
+    "windowType": null,
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE OR REPLACE TABLE TABLE_ROLE WITH (KAFKA_TOPIC='TABLE_ROLE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_ROLES.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_ROLES.AFTER->NAME, true) NAME\nFROM STREAM_ROLES STREAM_ROLES\nGROUP BY STREAM_ROLES.AFTER->ID\nEMIT CHANGES;",
+        "sinks": [
+          "TABLE_ROLE"
+        ],
+        "sinkKafkaTopics": [
+          "TABLE_ROLE"
+        ],
+        "id": "CTAS_TABLE_ROLE_511",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "ID_1",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "NAME",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "TABLE_ROLE",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE OR REPLACE TABLE TABLE_ROLE WITH (KAFKA_TOPIC='TABLE_ROLE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_ROLES.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_ROLES.AFTER->NAME, true) NAME\nFROM STREAM_ROLES STREAM_ROLES\nGROUP BY STREAM_ROLES.AFTER->ID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_ROLE_511",
+        "topicSummaries": []
+      }
+    ]
+  },
+  {
+    "name": "TABLE_ACODE",
+    "windowType": null,
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE OR REPLACE TABLE TABLE_ACODE WITH (KAFKA_TOPIC='TABLE_ACODE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_ACODE.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_ACODE.AFTER->CODE, true) CODE,\n  LATEST_BY_OFFSET(STREAM_ACODE.AFTER->CODE, true) SHORTDESCRIPTION\nFROM STREAM_ACODE STREAM_ACODE\nGROUP BY STREAM_ACODE.AFTER->ID\nEMIT CHANGES;",
+        "sinks": [
+          "TABLE_ACODE"
+        ],
+        "sinkKafkaTopics": [
+          "TABLE_ACODE"
+        ],
+        "id": "CTAS_TABLE_ACODE_155",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "ID_1",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "CODE",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "SHORTDESCRIPTION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "TABLE_ACODE",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE OR REPLACE TABLE TABLE_ACODE WITH (KAFKA_TOPIC='TABLE_ACODE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_ACODE.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_ACODE.AFTER->CODE, true) CODE,\n  LATEST_BY_OFFSET(STREAM_ACODE.AFTER->CODE, true) SHORTDESCRIPTION\nFROM STREAM_ACODE STREAM_ACODE\nGROUP BY STREAM_ACODE.AFTER->ID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_ACODE_155",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.ACode",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 336,
+                "logEndOffset": 336,
+                "consumerOffset": 336
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_ACODE_155-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 304,
+                "logEndOffset": 304,
+                "consumerOffset": 304
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "TABLE_AREACONSTRUCTIONPHASE",
+    "windowType": null,
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE OR REPLACE TABLE TABLE_AREACONSTRUCTIONPHASE WITH (KAFKA_TOPIC='TABLE_AREACONSTRUCTIONPHASE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_AREACONSTRUCTIONPHASE.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_AREACONSTRUCTIONPHASE.AFTER->NAME, true) NAME,\n  (((LATEST_BY_OFFSET(STREAM_AREACONSTRUCTIONPHASE.AFTER->DESCRIPTION, true) + ' (') + LATEST_BY_OFFSET(STREAM_AREACONSTRUCTIONPHASE.AFTER->ID, true)) + ')') SHORTDESCRIPTION\nFROM STREAM_AREACONSTRUCTIONPHASE STREAM_AREACONSTRUCTIONPHASE\nGROUP BY STREAM_AREACONSTRUCTIONPHASE.AFTER->ID\nEMIT CHANGES;",
+        "sinks": [
+          "TABLE_AREACONSTRUCTIONPHASE"
+        ],
+        "sinkKafkaTopics": [
+          "TABLE_AREACONSTRUCTIONPHASE"
+        ],
+        "id": "CTAS_TABLE_AREACONSTRUCTIONPHASE_157",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "ID_1",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "NAME",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "SHORTDESCRIPTION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "TABLE_AREACONSTRUCTIONPHASE",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE OR REPLACE TABLE TABLE_AREACONSTRUCTIONPHASE WITH (KAFKA_TOPIC='TABLE_AREACONSTRUCTIONPHASE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_AREACONSTRUCTIONPHASE.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_AREACONSTRUCTIONPHASE.AFTER->NAME, true) NAME,\n  (((LATEST_BY_OFFSET(STREAM_AREACONSTRUCTIONPHASE.AFTER->DESCRIPTION, true) + ' (') + LATEST_BY_OFFSET(STREAM_AREACONSTRUCTIONPHASE.AFTER->ID, true)) + ')') SHORTDESCRIPTION\nFROM STREAM_AREACONSTRUCTIONPHASE STREAM_AREACONSTRUCTIONPHASE\nGROUP BY STREAM_AREACONSTRUCTIONPHASE.AFTER->ID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_AREACONSTRUCTIONPHASE_157",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_AREACONSTRUCTIONPHASE_157-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 35,
+                "logEndOffset": 35,
+                "consumerOffset": 35
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.AreaConstructionPhase",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 30,
+                "logEndOffset": 30,
+                "consumerOffset": 30
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "TABLE_POP",
+    "windowType": null,
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE OR REPLACE TABLE TABLE_POP WITH (KAFKA_TOPIC='TABLE_POP', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_POP.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_POP.AFTER->NAME, true) NAME,\n  LATEST_BY_OFFSET(STREAM_POP.AFTER->POPTYPE, true) POPTYPE,\n  (((LATEST_BY_OFFSET(STREAM_POP.AFTER->NAME, true) + ' (') + LATEST_BY_OFFSET(STREAM_POP.AFTER->ID, true)) + ')') SHORTDESCRIPTION\nFROM STREAM_POP STREAM_POP\nGROUP BY STREAM_POP.AFTER->ID\nEMIT CHANGES;",
+        "sinks": [
+          "TABLE_POP"
+        ],
+        "sinkKafkaTopics": [
+          "TABLE_POP"
+        ],
+        "id": "CTAS_TABLE_POP_807",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "ID_1",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "NAME",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "POPTYPE",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "SHORTDESCRIPTION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "TABLE_POP",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE OR REPLACE TABLE TABLE_POP WITH (KAFKA_TOPIC='TABLE_POP', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_POP.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_POP.AFTER->NAME, true) NAME,\n  LATEST_BY_OFFSET(STREAM_POP.AFTER->POPTYPE, true) POPTYPE,\n  (((LATEST_BY_OFFSET(STREAM_POP.AFTER->NAME, true) + ' (') + LATEST_BY_OFFSET(STREAM_POP.AFTER->ID, true)) + ')') SHORTDESCRIPTION\nFROM STREAM_POP STREAM_POP\nGROUP BY STREAM_POP.AFTER->ID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_POP_807",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_POP_807-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 6757,
+                "logEndOffset": 6757,
+                "consumerOffset": 6757
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.POP",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 7597,
+                "logEndOffset": 7597,
+                "consumerOffset": 7597
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "TABLE_NETWORKOWNER",
+    "windowType": null,
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE OR REPLACE TABLE TABLE_NETWORKOWNER WITH (KAFKA_TOPIC='TABLE_NETWORKOWNER', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_NETWORKOWNER.AFTER->ID NETWORKOWNERID,\n  LATEST_BY_OFFSET(STREAM_NETWORKOWNER.AFTER->NAME, true) NAME,\n  LATEST_BY_OFFSET(STREAM_NETWORKOWNER.AFTER->NAME, true) SHORTDESCRIPTION\nFROM STREAM_NETWORKOWNER STREAM_NETWORKOWNER\nGROUP BY STREAM_NETWORKOWNER.AFTER->ID\nEMIT CHANGES;",
+        "sinks": [
+          "TABLE_NETWORKOWNER"
+        ],
+        "sinkKafkaTopics": [
+          "TABLE_NETWORKOWNER"
+        ],
+        "id": "CTAS_TABLE_NETWORKOWNER_169",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "NETWORKOWNERID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "NAME",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "SHORTDESCRIPTION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "TABLE_NETWORKOWNER",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE OR REPLACE TABLE TABLE_NETWORKOWNER WITH (KAFKA_TOPIC='TABLE_NETWORKOWNER', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_NETWORKOWNER.AFTER->ID NETWORKOWNERID,\n  LATEST_BY_OFFSET(STREAM_NETWORKOWNER.AFTER->NAME, true) NAME,\n  LATEST_BY_OFFSET(STREAM_NETWORKOWNER.AFTER->NAME, true) SHORTDESCRIPTION\nFROM STREAM_NETWORKOWNER STREAM_NETWORKOWNER\nGROUP BY STREAM_NETWORKOWNER.AFTER->ID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_NETWORKOWNER_169",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_NETWORKOWNER_169-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 64,
+                "logEndOffset": 64,
+                "consumerOffset": 64
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.NetworkOwner",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 52,
+                "logEndOffset": 52,
+                "consumerOffset": 52
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "TABLE_BUILDER",
+    "windowType": null,
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE OR REPLACE TABLE TABLE_BUILDER WITH (KAFKA_TOPIC='TABLE_BUILDER', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_BUILDER.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_BUILDER.AFTER->NAME, true) NAME,\n  (((LATEST_BY_OFFSET(STREAM_BUILDER.AFTER->NAME, true) + ' (') + LATEST_BY_OFFSET(STREAM_BUILDER.AFTER->ID, true)) + ')') SHORTDESCRIPTION\nFROM STREAM_BUILDER STREAM_BUILDER\nGROUP BY STREAM_BUILDER.AFTER->ID\nEMIT CHANGES;",
+        "sinks": [
+          "TABLE_BUILDER"
+        ],
+        "sinkKafkaTopics": [
+          "TABLE_BUILDER"
+        ],
+        "id": "CTAS_TABLE_BUILDER_171",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "ID_1",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "NAME",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "SHORTDESCRIPTION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "TABLE_BUILDER",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE OR REPLACE TABLE TABLE_BUILDER WITH (KAFKA_TOPIC='TABLE_BUILDER', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_BUILDER.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_BUILDER.AFTER->NAME, true) NAME,\n  (((LATEST_BY_OFFSET(STREAM_BUILDER.AFTER->NAME, true) + ' (') + LATEST_BY_OFFSET(STREAM_BUILDER.AFTER->ID, true)) + ')') SHORTDESCRIPTION\nFROM STREAM_BUILDER STREAM_BUILDER\nGROUP BY STREAM_BUILDER.AFTER->ID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_BUILDER_171",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.Builder",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 140,
+                "logEndOffset": 140,
+                "consumerOffset": 140
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_BUILDER_171-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 158,
+                "logEndOffset": 158,
+                "consumerOffset": 158
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "TABLE_THIRDPARTYSYSTEM",
+    "windowType": null,
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE OR REPLACE TABLE TABLE_THIRDPARTYSYSTEM WITH (KAFKA_TOPIC='TABLE_THIRDPARTYSYSTEM', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_THIRDPARTYSYSTEM.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_THIRDPARTYSYSTEM.AFTER->NAME, true) NAME,\n  LATEST_BY_OFFSET(STREAM_THIRDPARTYSYSTEM.AFTER->NAME, true) SHORTDESCRIPTION\nFROM STREAM_THIRDPARTYSYSTEM STREAM_THIRDPARTYSYSTEM\nGROUP BY STREAM_THIRDPARTYSYSTEM.AFTER->ID\nEMIT CHANGES;",
+        "sinks": [
+          "TABLE_THIRDPARTYSYSTEM"
+        ],
+        "sinkKafkaTopics": [
+          "TABLE_THIRDPARTYSYSTEM"
+        ],
+        "id": "CTAS_TABLE_THIRDPARTYSYSTEM_183",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "ID_1",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "NAME",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "SHORTDESCRIPTION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "TABLE_THIRDPARTYSYSTEM",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE OR REPLACE TABLE TABLE_THIRDPARTYSYSTEM WITH (KAFKA_TOPIC='TABLE_THIRDPARTYSYSTEM', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_THIRDPARTYSYSTEM.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_THIRDPARTYSYSTEM.AFTER->NAME, true) NAME,\n  LATEST_BY_OFFSET(STREAM_THIRDPARTYSYSTEM.AFTER->NAME, true) SHORTDESCRIPTION\nFROM STREAM_THIRDPARTYSYSTEM STREAM_THIRDPARTYSYSTEM\nGROUP BY STREAM_THIRDPARTYSYSTEM.AFTER->ID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_THIRDPARTYSYSTEM_183",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_THIRDPARTYSYSTEM_183-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 29,
+                "logEndOffset": 29,
+                "consumerOffset": 29
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.ThirdPartySystem",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 24,
+                "logEndOffset": 24,
+                "consumerOffset": 24
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "TABLE_USER",
+    "windowType": null,
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE OR REPLACE TABLE TABLE_USER WITH (KAFKA_TOPIC='TABLE_USER', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_USERS_TIMING.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_USERS_TIMING.AFTER->USERNAME, true) USERNAME,\n  LATEST_BY_OFFSET(STREAM_USERS_TIMING.AFTER->EMAIL, true) EMAIL\nFROM STREAM_USERS_TIMING STREAM_USERS_TIMING\nGROUP BY STREAM_USERS_TIMING.AFTER->ID\nEMIT CHANGES;",
+        "sinks": [
+          "TABLE_USER"
+        ],
+        "sinkKafkaTopics": [
+          "TABLE_USER"
+        ],
+        "id": "CTAS_TABLE_USER_821",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "ID_1",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "USERNAME",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "EMAIL",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "messages-per-sec:      0.01   total-messages:         1     last-message: 2023-10-27T02:26:39.35Z",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "TABLE_USER",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE OR REPLACE TABLE TABLE_USER WITH (KAFKA_TOPIC='TABLE_USER', PARTITIONS=1, REPLICAS=1) AS SELECT\n  STREAM_USERS_TIMING.AFTER->ID ID_1,\n  LATEST_BY_OFFSET(STREAM_USERS_TIMING.AFTER->USERNAME, true) USERNAME,\n  LATEST_BY_OFFSET(STREAM_USERS_TIMING.AFTER->EMAIL, true) EMAIL\nFROM STREAM_USERS_TIMING STREAM_USERS_TIMING\nGROUP BY STREAM_USERS_TIMING.AFTER->ID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_USER_821",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "historical-db.caiwbs_auth.AspNetUsers",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 14370,
+                "logEndOffset": 14687,
+                "consumerOffset": 14687
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_TABLE_USER_821-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 10111,
+                "logEndOffset": 10111,
+                "consumerOffset": 10111
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_ADD",
+    "windowType": "SESSION",
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE TABLE AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_ADD WITH (KAFKA_TOPIC='AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_ADD', PARTITIONS=1, REPLICAS=1) AS SELECT\n  COLLECT_SET(A.AFTER->ISPID) ENRICHOBJECTSID,\n  A.AFTER->AREAID ID,\n  LATEST_BY_OFFSET(A.AFTER->AREAID) AREAID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR\nFROM STREAM_AREA_HAS_COMMERCIALPROVIDER A\nINNER JOIN STREAM_HISTORICALOBJECTREVISION REVISIONOBJECT WITHIN 3 SECONDS ON ((A.AFTER->AREAID = REVISIONOBJECT.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_REVISION REVISION WITHIN 3 SECONDS ON ((REVISIONOBJECT.AFTER->REVISIONID = REVISION.AFTER->IDREVISION))\nWINDOW SESSION ( 3 SECONDS ) \nWHERE (A.OP = 'c')\nGROUP BY A.AFTER->AREAID\nEMIT CHANGES;",
+        "sinks": [
+          "AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_ADD"
+        ],
+        "sinkKafkaTopics": [
+          "AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_ADD"
+        ],
+        "id": "CTAS_AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_ADD_33",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "ID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "ENRICHOBJECTSID",
+        "schema": {
+          "type": "ARRAY",
+          "fields": null,
+          "memberSchema": {
+            "type": "STRING",
+            "fields": null,
+            "memberSchema": null
+          }
+        }
+      },
+      {
+        "name": "AREAID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "REVISION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "AUTHOR",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_ADD",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE TABLE AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_ADD WITH (KAFKA_TOPIC='AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_ADD', PARTITIONS=1, REPLICAS=1) AS SELECT\n  COLLECT_SET(A.AFTER->ISPID) ENRICHOBJECTSID,\n  A.AFTER->AREAID ID,\n  LATEST_BY_OFFSET(A.AFTER->AREAID) AREAID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR\nFROM STREAM_AREA_HAS_COMMERCIALPROVIDER A\nINNER JOIN STREAM_HISTORICALOBJECTREVISION REVISIONOBJECT WITHIN 3 SECONDS ON ((A.AFTER->AREAID = REVISIONOBJECT.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_REVISION REVISION WITHIN 3 SECONDS ON ((REVISIONOBJECT.AFTER->REVISIONID = REVISION.AFTER->IDREVISION))\nWINDOW SESSION ( 3 SECONDS ) \nWHERE (A.OP = 'c')\nGROUP BY A.AFTER->AREAID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_ADD_33",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_ADD_33-Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 689,
+                "logEndOffset": 689,
+                "consumerOffset": 689
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.revision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 11446920,
+                "logEndOffset": 11447080,
+                "consumerOffset": 11447080
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.HistoricalObjectRevision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 31926,
+                "logEndOffset": 31963,
+                "consumerOffset": 31963
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.Area_has_CommercialProvider",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 12098,
+                "logEndOffset": 12264,
+                "consumerOffset": 12264
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_ADD_33-Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 107175,
+                "logEndOffset": 107175,
+                "consumerOffset": 107175
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_ADD_33-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 689,
+                "logEndOffset": 689,
+                "consumerOffset": 689
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_ADD_33-L_Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 25340,
+                "logEndOffset": 25340,
+                "consumerOffset": 25340
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_ADD_33-L_Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 12906,
+                "logEndOffset": 12906,
+                "consumerOffset": 12906
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "AGGREGATED_AREA_HAS_THIRDPARTY_ADD",
+    "windowType": "SESSION",
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE TABLE AGGREGATED_AREA_HAS_THIRDPARTY_ADD WITH (KAFKA_TOPIC='AGGREGATED_AREA_HAS_THIRDPARTY_ADD', PARTITIONS=1, REPLICAS=1) AS SELECT\n  COLLECT_SET(A.AFTER->THIRDPARTYSYSTEMID) ENRICHOBJECTSID,\n  A.AFTER->AREAID ID,\n  LATEST_BY_OFFSET(A.AFTER->AREAID) AREAID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR\nFROM STREAM_AREA_HAS_THIRDPARTYSYSTEM A\nINNER JOIN STREAM_HISTORICALOBJECTREVISION REVISIONOBJECT WITHIN 3 SECONDS ON ((A.AFTER->AREAID = REVISIONOBJECT.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_REVISION REVISION WITHIN 3 SECONDS ON ((REVISIONOBJECT.AFTER->REVISIONID = REVISION.AFTER->IDREVISION))\nWINDOW SESSION ( 3 SECONDS ) \nWHERE (A.OP = 'c')\nGROUP BY A.AFTER->AREAID\nEMIT CHANGES;",
+        "sinks": [
+          "AGGREGATED_AREA_HAS_THIRDPARTY_ADD"
+        ],
+        "sinkKafkaTopics": [
+          "AGGREGATED_AREA_HAS_THIRDPARTY_ADD"
+        ],
+        "id": "CTAS_AGGREGATED_AREA_HAS_THIRDPARTY_ADD_41",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "ID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "ENRICHOBJECTSID",
+        "schema": {
+          "type": "ARRAY",
+          "fields": null,
+          "memberSchema": {
+            "type": "STRING",
+            "fields": null,
+            "memberSchema": null
+          }
+        }
+      },
+      {
+        "name": "AREAID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "REVISION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "AUTHOR",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "AGGREGATED_AREA_HAS_THIRDPARTY_ADD",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE TABLE AGGREGATED_AREA_HAS_THIRDPARTY_ADD WITH (KAFKA_TOPIC='AGGREGATED_AREA_HAS_THIRDPARTY_ADD', PARTITIONS=1, REPLICAS=1) AS SELECT\n  COLLECT_SET(A.AFTER->THIRDPARTYSYSTEMID) ENRICHOBJECTSID,\n  A.AFTER->AREAID ID,\n  LATEST_BY_OFFSET(A.AFTER->AREAID) AREAID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR\nFROM STREAM_AREA_HAS_THIRDPARTYSYSTEM A\nINNER JOIN STREAM_HISTORICALOBJECTREVISION REVISIONOBJECT WITHIN 3 SECONDS ON ((A.AFTER->AREAID = REVISIONOBJECT.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_REVISION REVISION WITHIN 3 SECONDS ON ((REVISIONOBJECT.AFTER->REVISIONID = REVISION.AFTER->IDREVISION))\nWINDOW SESSION ( 3 SECONDS ) \nWHERE (A.OP = 'c')\nGROUP BY A.AFTER->AREAID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_AREA_HAS_THIRDPARTY_ADD_41",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_AREA_HAS_THIRDPARTY_ADD_41-L_Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 9744,
+                "logEndOffset": 9744,
+                "consumerOffset": 9744
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_AREA_HAS_THIRDPARTY_ADD_41-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 410,
+                "logEndOffset": 410,
+                "consumerOffset": 410
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.Area_has_ThirdPartySystem",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 7963,
+                "logEndOffset": 7976,
+                "consumerOffset": 7976
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_AREA_HAS_THIRDPARTY_ADD_41-Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 105638,
+                "logEndOffset": 105638,
+                "consumerOffset": 105638
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.revision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 11446920,
+                "logEndOffset": 11447080,
+                "consumerOffset": 11447080
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_AREA_HAS_THIRDPARTY_ADD_41-L_Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 25617,
+                "logEndOffset": 25617,
+                "consumerOffset": 25617
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.HistoricalObjectRevision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 31926,
+                "logEndOffset": 31963,
+                "consumerOffset": 31963
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_AREA_HAS_THIRDPARTY_ADD_41-Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 571,
+                "logEndOffset": 571,
+                "consumerOffset": 571
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "AGGREGATED_POP_USEBLE_IN_CO_ADD_POP",
+    "windowType": "SESSION",
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE TABLE AGGREGATED_POP_USEBLE_IN_CO_ADD_POP WITH (KAFKA_TOPIC='AGGREGATED_POP_USEBLE_IN_CO_ADD_POP', PARTITIONS=1, REPLICAS=1) AS SELECT\n  COLLECT_SET(P.AFTER->POPID) ENRICHOBJECTSID,\n  P.AFTER->CONSTRUCTIONORDERID CONSTRUCTIONORDERID,\n  LATEST_BY_OFFSET(P.AFTER->CONSTRUCTIONORDERID) COID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR\nFROM STREAM_POP_USEBLE_IN_CO P\nINNER JOIN STREAM_HISTORICALOBJECTREVISION REVISIONOBJECT WITHIN 3 SECONDS ON ((P.AFTER->CONSTRUCTIONORDERID = REVISIONOBJECT.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_REVISION REVISION WITHIN 3 SECONDS ON ((REVISIONOBJECT.AFTER->REVISIONID = REVISION.AFTER->IDREVISION))\nWINDOW SESSION ( 3 SECONDS ) \nWHERE ((P.OP = 'c') AND (REVISIONOBJECT.AFTER->OBJECTREFERENCETYPE = 'ConstructionOrder'))\nGROUP BY P.AFTER->CONSTRUCTIONORDERID\nEMIT CHANGES;",
+        "sinks": [
+          "AGGREGATED_POP_USEBLE_IN_CO_ADD_POP"
+        ],
+        "sinkKafkaTopics": [
+          "AGGREGATED_POP_USEBLE_IN_CO_ADD_POP"
+        ],
+        "id": "CTAS_AGGREGATED_POP_USEBLE_IN_CO_ADD_POP_85",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "CONSTRUCTIONORDERID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "ENRICHOBJECTSID",
+        "schema": {
+          "type": "ARRAY",
+          "fields": null,
+          "memberSchema": {
+            "type": "STRING",
+            "fields": null,
+            "memberSchema": null
+          }
+        }
+      },
+      {
+        "name": "COID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "REVISION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "AUTHOR",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "AGGREGATED_POP_USEBLE_IN_CO_ADD_POP",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE TABLE AGGREGATED_POP_USEBLE_IN_CO_ADD_POP WITH (KAFKA_TOPIC='AGGREGATED_POP_USEBLE_IN_CO_ADD_POP', PARTITIONS=1, REPLICAS=1) AS SELECT\n  COLLECT_SET(P.AFTER->POPID) ENRICHOBJECTSID,\n  P.AFTER->CONSTRUCTIONORDERID CONSTRUCTIONORDERID,\n  LATEST_BY_OFFSET(P.AFTER->CONSTRUCTIONORDERID) COID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR\nFROM STREAM_POP_USEBLE_IN_CO P\nINNER JOIN STREAM_HISTORICALOBJECTREVISION REVISIONOBJECT WITHIN 3 SECONDS ON ((P.AFTER->CONSTRUCTIONORDERID = REVISIONOBJECT.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_REVISION REVISION WITHIN 3 SECONDS ON ((REVISIONOBJECT.AFTER->REVISIONID = REVISION.AFTER->IDREVISION))\nWINDOW SESSION ( 3 SECONDS ) \nWHERE ((P.OP = 'c') AND (REVISIONOBJECT.AFTER->OBJECTREFERENCETYPE = 'ConstructionOrder'))\nGROUP BY P.AFTER->CONSTRUCTIONORDERID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_USEBLE_IN_CO_ADD_POP_85",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.PopUsableInCo",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 8991,
+                "logEndOffset": 8991,
+                "consumerOffset": 8991
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_USEBLE_IN_CO_ADD_POP_85-Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 268,
+                "logEndOffset": 268,
+                "consumerOffset": 268
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_USEBLE_IN_CO_ADD_POP_85-L_Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 36711,
+                "logEndOffset": 36711,
+                "consumerOffset": 36711
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.revision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 11446920,
+                "logEndOffset": 11447080,
+                "consumerOffset": 11447080
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_USEBLE_IN_CO_ADD_POP_85-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 159,
+                "logEndOffset": 159,
+                "consumerOffset": 159
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.HistoricalObjectRevision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 31926,
+                "logEndOffset": 31963,
+                "consumerOffset": 31963
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_USEBLE_IN_CO_ADD_POP_85-Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 131659,
+                "logEndOffset": 131659,
+                "consumerOffset": 131659
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_USEBLE_IN_CO_ADD_POP_85-L_Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 9834,
+                "logEndOffset": 9834,
+                "consumerOffset": 9834
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "AGGREGATED_POP_USEBLE_IN_CO_DELETE_POP",
+    "windowType": "SESSION",
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE TABLE AGGREGATED_POP_USEBLE_IN_CO_DELETE_POP WITH (KAFKA_TOPIC='AGGREGATED_POP_USEBLE_IN_CO_DELETE_POP', PARTITIONS=1, REPLICAS=1) AS SELECT\n  COLLECT_SET(P.BEFORE->POPID) ENRICHOBJECTSID,\n  P.BEFORE->CONSTRUCTIONORDERID CONSTRUCTIONORDERID,\n  LATEST_BY_OFFSET(P.BEFORE->CONSTRUCTIONORDERID) COID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR\nFROM STREAM_POP_USEBLE_IN_CO P\nINNER JOIN STREAM_HISTORICALOBJECTREVISION REVISIONOBJECT WITHIN 3 SECONDS ON ((P.BEFORE->CONSTRUCTIONORDERID = REVISIONOBJECT.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_REVISION REVISION WITHIN 3 SECONDS ON ((REVISIONOBJECT.AFTER->REVISIONID = REVISION.AFTER->IDREVISION))\nWINDOW SESSION ( 3 SECONDS ) \nWHERE ((P.OP = 'd') AND (REVISIONOBJECT.AFTER->OBJECTREFERENCETYPE = 'ConstructionOrder'))\nGROUP BY P.BEFORE->CONSTRUCTIONORDERID\nEMIT CHANGES;",
+        "sinks": [
+          "AGGREGATED_POP_USEBLE_IN_CO_DELETE_POP"
+        ],
+        "sinkKafkaTopics": [
+          "AGGREGATED_POP_USEBLE_IN_CO_DELETE_POP"
+        ],
+        "id": "CTAS_AGGREGATED_POP_USEBLE_IN_CO_DELETE_POP_89",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "CONSTRUCTIONORDERID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "ENRICHOBJECTSID",
+        "schema": {
+          "type": "ARRAY",
+          "fields": null,
+          "memberSchema": {
+            "type": "STRING",
+            "fields": null,
+            "memberSchema": null
+          }
+        }
+      },
+      {
+        "name": "COID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "REVISION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "AUTHOR",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "AGGREGATED_POP_USEBLE_IN_CO_DELETE_POP",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE TABLE AGGREGATED_POP_USEBLE_IN_CO_DELETE_POP WITH (KAFKA_TOPIC='AGGREGATED_POP_USEBLE_IN_CO_DELETE_POP', PARTITIONS=1, REPLICAS=1) AS SELECT\n  COLLECT_SET(P.BEFORE->POPID) ENRICHOBJECTSID,\n  P.BEFORE->CONSTRUCTIONORDERID CONSTRUCTIONORDERID,\n  LATEST_BY_OFFSET(P.BEFORE->CONSTRUCTIONORDERID) COID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR\nFROM STREAM_POP_USEBLE_IN_CO P\nINNER JOIN STREAM_HISTORICALOBJECTREVISION REVISIONOBJECT WITHIN 3 SECONDS ON ((P.BEFORE->CONSTRUCTIONORDERID = REVISIONOBJECT.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_REVISION REVISION WITHIN 3 SECONDS ON ((REVISIONOBJECT.AFTER->REVISIONID = REVISION.AFTER->IDREVISION))\nWINDOW SESSION ( 3 SECONDS ) \nWHERE ((P.OP = 'd') AND (REVISIONOBJECT.AFTER->OBJECTREFERENCETYPE = 'ConstructionOrder'))\nGROUP BY P.BEFORE->CONSTRUCTIONORDERID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_USEBLE_IN_CO_DELETE_POP_89",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.PopUsableInCo",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 8991,
+                "logEndOffset": 8991,
+                "consumerOffset": 8991
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.revision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 11446920,
+                "logEndOffset": 11447080,
+                "consumerOffset": 11447080
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_USEBLE_IN_CO_DELETE_POP_89-Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 129333,
+                "logEndOffset": 129333,
+                "consumerOffset": 129333
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_USEBLE_IN_CO_DELETE_POP_89-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 32,
+                "logEndOffset": 32,
+                "consumerOffset": 32
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.HistoricalObjectRevision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 31926,
+                "logEndOffset": 31963,
+                "consumerOffset": 31963
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_USEBLE_IN_CO_DELETE_POP_89-Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 183,
+                "logEndOffset": 183,
+                "consumerOffset": 183
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_USEBLE_IN_CO_DELETE_POP_89-L_Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 36801,
+                "logEndOffset": 36801,
+                "consumerOffset": 36801
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_USEBLE_IN_CO_DELETE_POP_89-L_Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 9330,
+                "logEndOffset": 9330,
+                "consumerOffset": 9330
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_ADD_CO",
+    "windowType": "SESSION",
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE TABLE AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_ADD_CO WITH (KAFKA_TOPIC='AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_ADD_CO', PARTITIONS=1, REPLICAS=1) AS SELECT\n  COLLECT_SET(P.AFTER->CONSTRUCTIONORDERID) ENRICHOBJECTSID,\n  P.AFTER->POPID ID,\n  LATEST_BY_OFFSET(P.AFTER->POPID) POPID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR\nFROM STREAM_POP_USEBLE_IN_CO P\nINNER JOIN STREAM_HISTORICALOBJECTREVISION REVISIONOBJECT WITHIN 3 SECONDS ON ((P.AFTER->POPID = REVISIONOBJECT.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_REVISION REVISION WITHIN 3 SECONDS ON ((REVISIONOBJECT.AFTER->REVISIONID = REVISION.AFTER->IDREVISION))\nWINDOW SESSION ( 3 SECONDS ) \nWHERE (((P.OP = 'c') AND (REVISIONOBJECT.AFTER->OBJECTREFERENCETYPE = 'Pop')) OR (((P.OP = 'u') AND (REVISIONOBJECT.AFTER->OBJECTREFERENCETYPE = 'Pop')) AND (P.AFTER->ACTIVE = 1)))\nGROUP BY P.AFTER->POPID\nEMIT CHANGES;",
+        "sinks": [
+          "AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_ADD_CO"
+        ],
+        "sinkKafkaTopics": [
+          "AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_ADD_CO"
+        ],
+        "id": "CTAS_AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_ADD_CO_141",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "ID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "ENRICHOBJECTSID",
+        "schema": {
+          "type": "ARRAY",
+          "fields": null,
+          "memberSchema": {
+            "type": "STRING",
+            "fields": null,
+            "memberSchema": null
+          }
+        }
+      },
+      {
+        "name": "POPID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "REVISION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "AUTHOR",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_ADD_CO",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE TABLE AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_ADD_CO WITH (KAFKA_TOPIC='AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_ADD_CO', PARTITIONS=1, REPLICAS=1) AS SELECT\n  COLLECT_SET(P.AFTER->CONSTRUCTIONORDERID) ENRICHOBJECTSID,\n  P.AFTER->POPID ID,\n  LATEST_BY_OFFSET(P.AFTER->POPID) POPID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR\nFROM STREAM_POP_USEBLE_IN_CO P\nINNER JOIN STREAM_HISTORICALOBJECTREVISION REVISIONOBJECT WITHIN 3 SECONDS ON ((P.AFTER->POPID = REVISIONOBJECT.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_REVISION REVISION WITHIN 3 SECONDS ON ((REVISIONOBJECT.AFTER->REVISIONID = REVISION.AFTER->IDREVISION))\nWINDOW SESSION ( 3 SECONDS ) \nWHERE (((P.OP = 'c') AND (REVISIONOBJECT.AFTER->OBJECTREFERENCETYPE = 'Pop')) OR (((P.OP = 'u') AND (REVISIONOBJECT.AFTER->OBJECTREFERENCETYPE = 'Pop')) AND (P.AFTER->ACTIVE = 1)))\nGROUP BY P.AFTER->POPID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_ADD_CO_141",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_ADD_CO_141-L_Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 35359,
+                "logEndOffset": 35359,
+                "consumerOffset": 35359
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_ADD_CO_141-L_Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 10006,
+                "logEndOffset": 10006,
+                "consumerOffset": 10006
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.PopUsableInCo",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 8991,
+                "logEndOffset": 8991,
+                "consumerOffset": 8991
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.revision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 11446920,
+                "logEndOffset": 11447080,
+                "consumerOffset": 11447080
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_ADD_CO_141-Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 896,
+                "logEndOffset": 896,
+                "consumerOffset": 896
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_ADD_CO_141-Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 132962,
+                "logEndOffset": 132962,
+                "consumerOffset": 132962
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.HistoricalObjectRevision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 31926,
+                "logEndOffset": 31963,
+                "consumerOffset": 31963
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_ADD_CO_141-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 748,
+                "logEndOffset": 748,
+                "consumerOffset": 748
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_DELETE_CO",
+    "windowType": "SESSION",
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE TABLE AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_DELETE_CO WITH (KAFKA_TOPIC='AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_DELETE_CO', PARTITIONS=1, REPLICAS=1) AS SELECT\n  COLLECT_SET(P.BEFORE->CONSTRUCTIONORDERID) ENRICHOBJECTSID,\n  P.BEFORE->POPID ID,\n  LATEST_BY_OFFSET(P.BEFORE->POPID) POPID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR\nFROM STREAM_POP_USEBLE_IN_CO P\nINNER JOIN STREAM_HISTORICALOBJECTREVISION REVISIONOBJECT WITHIN 3 SECONDS ON ((P.BEFORE->POPID = REVISIONOBJECT.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_REVISION REVISION WITHIN 3 SECONDS ON ((REVISIONOBJECT.AFTER->REVISIONID = REVISION.AFTER->IDREVISION))\nWINDOW SESSION ( 3 SECONDS ) \nWHERE (((P.OP = 'u') AND (REVISIONOBJECT.AFTER->OBJECTREFERENCETYPE = 'Pop')) AND (P.AFTER->ACTIVE = 0))\nGROUP BY P.BEFORE->POPID\nEMIT CHANGES;",
+        "sinks": [
+          "AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_DELETE_CO"
+        ],
+        "sinkKafkaTopics": [
+          "AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_DELETE_CO"
+        ],
+        "id": "CTAS_AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_DELETE_CO_145",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "ID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "ENRICHOBJECTSID",
+        "schema": {
+          "type": "ARRAY",
+          "fields": null,
+          "memberSchema": {
+            "type": "STRING",
+            "fields": null,
+            "memberSchema": null
+          }
+        }
+      },
+      {
+        "name": "POPID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "REVISION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "AUTHOR",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_DELETE_CO",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE TABLE AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_DELETE_CO WITH (KAFKA_TOPIC='AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_DELETE_CO', PARTITIONS=1, REPLICAS=1) AS SELECT\n  COLLECT_SET(P.BEFORE->CONSTRUCTIONORDERID) ENRICHOBJECTSID,\n  P.BEFORE->POPID ID,\n  LATEST_BY_OFFSET(P.BEFORE->POPID) POPID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR\nFROM STREAM_POP_USEBLE_IN_CO P\nINNER JOIN STREAM_HISTORICALOBJECTREVISION REVISIONOBJECT WITHIN 3 SECONDS ON ((P.BEFORE->POPID = REVISIONOBJECT.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_REVISION REVISION WITHIN 3 SECONDS ON ((REVISIONOBJECT.AFTER->REVISIONID = REVISION.AFTER->IDREVISION))\nWINDOW SESSION ( 3 SECONDS ) \nWHERE (((P.OP = 'u') AND (REVISIONOBJECT.AFTER->OBJECTREFERENCETYPE = 'Pop')) AND (P.AFTER->ACTIVE = 0))\nGROUP BY P.BEFORE->POPID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_DELETE_CO_145",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.PopUsableInCo",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 8991,
+                "logEndOffset": 8991,
+                "consumerOffset": 8991
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_DELETE_CO_145-L_Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 39457,
+                "logEndOffset": 39457,
+                "consumerOffset": 39457
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.revision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 11446920,
+                "logEndOffset": 11447080,
+                "consumerOffset": 11447080
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_DELETE_CO_145-L_Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 9504,
+                "logEndOffset": 9504,
+                "consumerOffset": 9504
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.HistoricalObjectRevision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 31926,
+                "logEndOffset": 31963,
+                "consumerOffset": 31963
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_LINKED_BUILDING_ASSIGNMENTS_DELETE_CO_145-Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 109376,
+                "logEndOffset": 109376,
+                "consumerOffset": 109376
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_ADD",
+    "windowType": "SESSION",
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE TABLE AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_ADD WITH (KAFKA_TOPIC='AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_ADD', PARTITIONS=1, REPLICAS=1) AS SELECT\n  COLLECT_SET(P.AFTER->THIRDPARTYSYSTEMID) ENRICHOBJECTSID,\n  P.AFTER->CONSTRUCTIONORDERID CONSTRUCTIONORDERID,\n  LATEST_BY_OFFSET(P.AFTER->CONSTRUCTIONORDERID) COID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR\nFROM STREAM_CO_HAS_THIRDPARTYSYSTEM P\nINNER JOIN STREAM_HISTORICALOBJECTREVISION REVISIONOBJECT WITHIN 3 SECONDS ON ((P.AFTER->CONSTRUCTIONORDERID = REVISIONOBJECT.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_REVISION REVISION WITHIN 3 SECONDS ON ((REVISIONOBJECT.AFTER->REVISIONID = REVISION.AFTER->IDREVISION))\nWINDOW SESSION ( 3 SECONDS ) \nWHERE (P.OP = 'c')\nGROUP BY P.AFTER->CONSTRUCTIONORDERID\nEMIT CHANGES;",
+        "sinks": [
+          "AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_ADD"
+        ],
+        "sinkKafkaTopics": [
+          "AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_ADD"
+        ],
+        "id": "CTAS_AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_ADD_93",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "CONSTRUCTIONORDERID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "ENRICHOBJECTSID",
+        "schema": {
+          "type": "ARRAY",
+          "fields": null,
+          "memberSchema": {
+            "type": "STRING",
+            "fields": null,
+            "memberSchema": null
+          }
+        }
+      },
+      {
+        "name": "COID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "REVISION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "AUTHOR",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_ADD",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE TABLE AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_ADD WITH (KAFKA_TOPIC='AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_ADD', PARTITIONS=1, REPLICAS=1) AS SELECT\n  COLLECT_SET(P.AFTER->THIRDPARTYSYSTEMID) ENRICHOBJECTSID,\n  P.AFTER->CONSTRUCTIONORDERID CONSTRUCTIONORDERID,\n  LATEST_BY_OFFSET(P.AFTER->CONSTRUCTIONORDERID) COID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR\nFROM STREAM_CO_HAS_THIRDPARTYSYSTEM P\nINNER JOIN STREAM_HISTORICALOBJECTREVISION REVISIONOBJECT WITHIN 3 SECONDS ON ((P.AFTER->CONSTRUCTIONORDERID = REVISIONOBJECT.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_REVISION REVISION WITHIN 3 SECONDS ON ((REVISIONOBJECT.AFTER->REVISIONID = REVISION.AFTER->IDREVISION))\nWINDOW SESSION ( 3 SECONDS ) \nWHERE (P.OP = 'c')\nGROUP BY P.AFTER->CONSTRUCTIONORDERID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_ADD_93",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_ADD_93-Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 138080,
+                "logEndOffset": 138080,
+                "consumerOffset": 138080
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.revision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 11446920,
+                "logEndOffset": 11447080,
+                "consumerOffset": 11447080
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.CO_has_ThirdPartySystem",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 4304,
+                "logEndOffset": 4305,
+                "consumerOffset": 4305
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_ADD_93-Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 83,
+                "logEndOffset": 83,
+                "consumerOffset": 83
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_ADD_93-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 83,
+                "logEndOffset": 83,
+                "consumerOffset": 83
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.HistoricalObjectRevision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 31926,
+                "logEndOffset": 31963,
+                "consumerOffset": 31963
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_ADD_93-L_Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 4320,
+                "logEndOffset": 4320,
+                "consumerOffset": 4320
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_ADD_93-L_Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 38901,
+                "logEndOffset": 38901,
+                "consumerOffset": 38901
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_DELETE",
+    "windowType": "SESSION",
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE TABLE AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_DELETE WITH (KAFKA_TOPIC='AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_DELETE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  COLLECT_SET(P.BEFORE->THIRDPARTYSYSTEMID) ENRICHOBJECTSID,\n  P.BEFORE->CONSTRUCTIONORDERID CONSTRUCTIONORDERID,\n  LATEST_BY_OFFSET(P.BEFORE->CONSTRUCTIONORDERID) COID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR\nFROM STREAM_CO_HAS_THIRDPARTYSYSTEM P\nINNER JOIN STREAM_HISTORICALOBJECTREVISION REVISIONOBJECT WITHIN 3 SECONDS ON ((P.BEFORE->CONSTRUCTIONORDERID = REVISIONOBJECT.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_REVISION REVISION WITHIN 3 SECONDS ON ((REVISIONOBJECT.AFTER->REVISIONID = REVISION.AFTER->IDREVISION))\nWINDOW SESSION ( 3 SECONDS ) \nWHERE (P.OP = 'd')\nGROUP BY P.BEFORE->CONSTRUCTIONORDERID\nEMIT CHANGES;",
+        "sinks": [
+          "AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_DELETE"
+        ],
+        "sinkKafkaTopics": [
+          "AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_DELETE"
+        ],
+        "id": "CTAS_AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_DELETE_97",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "CONSTRUCTIONORDERID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "ENRICHOBJECTSID",
+        "schema": {
+          "type": "ARRAY",
+          "fields": null,
+          "memberSchema": {
+            "type": "STRING",
+            "fields": null,
+            "memberSchema": null
+          }
+        }
+      },
+      {
+        "name": "COID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "REVISION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "AUTHOR",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_DELETE",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE TABLE AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_DELETE WITH (KAFKA_TOPIC='AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_DELETE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  COLLECT_SET(P.BEFORE->THIRDPARTYSYSTEMID) ENRICHOBJECTSID,\n  P.BEFORE->CONSTRUCTIONORDERID CONSTRUCTIONORDERID,\n  LATEST_BY_OFFSET(P.BEFORE->CONSTRUCTIONORDERID) COID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR\nFROM STREAM_CO_HAS_THIRDPARTYSYSTEM P\nINNER JOIN STREAM_HISTORICALOBJECTREVISION REVISIONOBJECT WITHIN 3 SECONDS ON ((P.BEFORE->CONSTRUCTIONORDERID = REVISIONOBJECT.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_REVISION REVISION WITHIN 3 SECONDS ON ((REVISIONOBJECT.AFTER->REVISIONID = REVISION.AFTER->IDREVISION))\nWINDOW SESSION ( 3 SECONDS ) \nWHERE (P.OP = 'd')\nGROUP BY P.BEFORE->CONSTRUCTIONORDERID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_DELETE_97",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.revision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 11446920,
+                "logEndOffset": 11447080,
+                "consumerOffset": 11447080
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.CO_has_ThirdPartySystem",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 4304,
+                "logEndOffset": 4305,
+                "consumerOffset": 4305
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_DELETE_97-L_Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 38877,
+                "logEndOffset": 38877,
+                "consumerOffset": 38877
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.HistoricalObjectRevision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 31926,
+                "logEndOffset": 31963,
+                "consumerOffset": 31963
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_DELETE_97-L_Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 4505,
+                "logEndOffset": 4505,
+                "consumerOffset": 4505
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_CO_HAS_THIRDPARTYSYSTEM_DELETE_97-Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 132577,
+                "logEndOffset": 132577,
+                "consumerOffset": 132577
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "AGGREGATED_POP_BUILDING_DELETE",
+    "windowType": "SESSION",
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE TABLE AGGREGATED_POP_BUILDING_DELETE WITH (KAFKA_TOPIC='AGGREGATED_POP_BUILDING_DELETE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  COLLECT_SET(P.BEFORE->ID) ENRICHOBJECTSID,\n  REVISIONOBJECT.AFTER->OBJECTREFERENCEID OBJECTREFERENCEID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->OBJECTREFERENCEID) COID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR\nFROM STREAM_POP P\nINNER JOIN STREAM_HISTORICALOBJECTREVISION REVISIONOBJECT WITHIN 3 SECONDS ON ((P.BEFORE->CONSTRUCTIONORDERID = REVISIONOBJECT.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_REVISION REVISION WITHIN 3 SECONDS ON ((REVISIONOBJECT.AFTER->REVISIONID = REVISION.AFTER->IDREVISION))\nWINDOW SESSION ( 3 SECONDS ) \nWHERE ((((P.BEFORE->CONSTRUCTIONORDERID IS NOT NULL) OR (P.BEFORE->CONSTRUCTIONORDERID <> '')) AND ((P.AFTER->CONSTRUCTIONORDERID IS NULL) OR (P.AFTER->CONSTRUCTIONORDERID = ''))) AND (REVISION.AFTER->ACTIONID = '29'))\nGROUP BY REVISIONOBJECT.AFTER->OBJECTREFERENCEID\nEMIT CHANGES;",
+        "sinks": [
+          "AGGREGATED_POP_BUILDING_DELETE"
+        ],
+        "sinkKafkaTopics": [
+          "AGGREGATED_POP_BUILDING_DELETE"
+        ],
+        "id": "CTAS_AGGREGATED_POP_BUILDING_DELETE_805",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "OBJECTREFERENCEID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "ENRICHOBJECTSID",
+        "schema": {
+          "type": "ARRAY",
+          "fields": null,
+          "memberSchema": {
+            "type": "STRING",
+            "fields": null,
+            "memberSchema": null
+          }
+        }
+      },
+      {
+        "name": "COID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "REVISION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "AUTHOR",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "AGGREGATED_POP_BUILDING_DELETE",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE TABLE AGGREGATED_POP_BUILDING_DELETE WITH (KAFKA_TOPIC='AGGREGATED_POP_BUILDING_DELETE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  COLLECT_SET(P.BEFORE->ID) ENRICHOBJECTSID,\n  REVISIONOBJECT.AFTER->OBJECTREFERENCEID OBJECTREFERENCEID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->OBJECTREFERENCEID) COID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR\nFROM STREAM_POP P\nINNER JOIN STREAM_HISTORICALOBJECTREVISION REVISIONOBJECT WITHIN 3 SECONDS ON ((P.BEFORE->CONSTRUCTIONORDERID = REVISIONOBJECT.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_REVISION REVISION WITHIN 3 SECONDS ON ((REVISIONOBJECT.AFTER->REVISIONID = REVISION.AFTER->IDREVISION))\nWINDOW SESSION ( 3 SECONDS ) \nWHERE ((((P.BEFORE->CONSTRUCTIONORDERID IS NOT NULL) OR (P.BEFORE->CONSTRUCTIONORDERID <> '')) AND ((P.AFTER->CONSTRUCTIONORDERID IS NULL) OR (P.AFTER->CONSTRUCTIONORDERID = ''))) AND (REVISION.AFTER->ACTIONID = '29'))\nGROUP BY REVISIONOBJECT.AFTER->OBJECTREFERENCEID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_BUILDING_DELETE_805",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_BUILDING_DELETE_805-L_Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 6760,
+                "logEndOffset": 6760,
+                "consumerOffset": 6760
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.revision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 11446920,
+                "logEndOffset": 11447080,
+                "consumerOffset": 11447080
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_BUILDING_DELETE_805-Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 106240,
+                "logEndOffset": 106240,
+                "consumerOffset": 106240
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.HistoricalObjectRevision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 31926,
+                "logEndOffset": 31963,
+                "consumerOffset": 31963
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_BUILDING_DELETE_805-L_Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 38183,
+                "logEndOffset": 38183,
+                "consumerOffset": 38183
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.POP",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 7597,
+                "logEndOffset": 7597,
+                "consumerOffset": 7597
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "AGGREGATED_POP_BUILDING_ADD",
+    "windowType": "SESSION",
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE TABLE AGGREGATED_POP_BUILDING_ADD WITH (KAFKA_TOPIC='AGGREGATED_POP_BUILDING_ADD', PARTITIONS=1, REPLICAS=1) AS SELECT\n  COLLECT_SET(P.AFTER->ID) ENRICHOBJECTSID,\n  REVISIONOBJECT.AFTER->OBJECTREFERENCEID OBJECTREFERENCEID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->OBJECTREFERENCEID) COID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR\nFROM STREAM_POP P\nINNER JOIN STREAM_HISTORICALOBJECTREVISION REVISIONOBJECT WITHIN 3 SECONDS ON ((P.AFTER->CONSTRUCTIONORDERID = REVISIONOBJECT.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_REVISION REVISION WITHIN 3 SECONDS ON ((REVISIONOBJECT.AFTER->REVISIONID = REVISION.AFTER->IDREVISION))\nWINDOW SESSION ( 3 SECONDS ) \nWHERE ((((P.BEFORE->CONSTRUCTIONORDERID IS NULL) OR (P.BEFORE->CONSTRUCTIONORDERID = '')) AND ((P.AFTER->CONSTRUCTIONORDERID IS NOT NULL) OR (P.AFTER->CONSTRUCTIONORDERID <> ''))) AND (REVISION.AFTER->ACTIONID = '29'))\nGROUP BY REVISIONOBJECT.AFTER->OBJECTREFERENCEID\nEMIT CHANGES;",
+        "sinks": [
+          "AGGREGATED_POP_BUILDING_ADD"
+        ],
+        "sinkKafkaTopics": [
+          "AGGREGATED_POP_BUILDING_ADD"
+        ],
+        "id": "CTAS_AGGREGATED_POP_BUILDING_ADD_803",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "OBJECTREFERENCEID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "ENRICHOBJECTSID",
+        "schema": {
+          "type": "ARRAY",
+          "fields": null,
+          "memberSchema": {
+            "type": "STRING",
+            "fields": null,
+            "memberSchema": null
+          }
+        }
+      },
+      {
+        "name": "COID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "REVISION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "AUTHOR",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "AGGREGATED_POP_BUILDING_ADD",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE TABLE AGGREGATED_POP_BUILDING_ADD WITH (KAFKA_TOPIC='AGGREGATED_POP_BUILDING_ADD', PARTITIONS=1, REPLICAS=1) AS SELECT\n  COLLECT_SET(P.AFTER->ID) ENRICHOBJECTSID,\n  REVISIONOBJECT.AFTER->OBJECTREFERENCEID OBJECTREFERENCEID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->OBJECTREFERENCEID) COID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR\nFROM STREAM_POP P\nINNER JOIN STREAM_HISTORICALOBJECTREVISION REVISIONOBJECT WITHIN 3 SECONDS ON ((P.AFTER->CONSTRUCTIONORDERID = REVISIONOBJECT.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_REVISION REVISION WITHIN 3 SECONDS ON ((REVISIONOBJECT.AFTER->REVISIONID = REVISION.AFTER->IDREVISION))\nWINDOW SESSION ( 3 SECONDS ) \nWHERE ((((P.BEFORE->CONSTRUCTIONORDERID IS NULL) OR (P.BEFORE->CONSTRUCTIONORDERID = '')) AND ((P.AFTER->CONSTRUCTIONORDERID IS NOT NULL) OR (P.AFTER->CONSTRUCTIONORDERID <> ''))) AND (REVISION.AFTER->ACTIONID = '29'))\nGROUP BY REVISIONOBJECT.AFTER->OBJECTREFERENCEID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_BUILDING_ADD_803",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_BUILDING_ADD_803-Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 1,
+                "logEndOffset": 1,
+                "consumerOffset": 1
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_BUILDING_ADD_803-L_Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 6835,
+                "logEndOffset": 6835,
+                "consumerOffset": 6835
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.revision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 11446920,
+                "logEndOffset": 11447080,
+                "consumerOffset": 11447080
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.HistoricalObjectRevision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 31926,
+                "logEndOffset": 31963,
+                "consumerOffset": 31963
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_BUILDING_ADD_803-Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 128857,
+                "logEndOffset": 128857,
+                "consumerOffset": 128857
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.POP",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 7597,
+                "logEndOffset": 7597,
+                "consumerOffset": 7597
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_POP_BUILDING_ADD_803-L_Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 37527,
+                "logEndOffset": 37527,
+                "consumerOffset": 37527
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "AGGREGATED_AREA_HAS_THIRDPARTY_DELETE",
+    "windowType": "SESSION",
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE TABLE AGGREGATED_AREA_HAS_THIRDPARTY_DELETE WITH (KAFKA_TOPIC='AGGREGATED_AREA_HAS_THIRDPARTY_DELETE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  COLLECT_SET(A.BEFORE->THIRDPARTYSYSTEMID) ENRICHOBJECTSID,\n  A.BEFORE->AREAID ID,\n  LATEST_BY_OFFSET(A.BEFORE->AREAID) AREAID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR\nFROM STREAM_AREA_HAS_THIRDPARTYSYSTEM A\nINNER JOIN STREAM_HISTORICALOBJECTREVISION REVISIONOBJECT WITHIN 3 SECONDS ON ((A.BEFORE->AREAID = REVISIONOBJECT.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_REVISION REVISION WITHIN 3 SECONDS ON ((REVISIONOBJECT.AFTER->REVISIONID = REVISION.AFTER->IDREVISION))\nWINDOW SESSION ( 3 SECONDS ) \nWHERE (A.OP = 'd')\nGROUP BY A.BEFORE->AREAID\nEMIT CHANGES;",
+        "sinks": [
+          "AGGREGATED_AREA_HAS_THIRDPARTY_DELETE"
+        ],
+        "sinkKafkaTopics": [
+          "AGGREGATED_AREA_HAS_THIRDPARTY_DELETE"
+        ],
+        "id": "CTAS_AGGREGATED_AREA_HAS_THIRDPARTY_DELETE_45",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "ID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "ENRICHOBJECTSID",
+        "schema": {
+          "type": "ARRAY",
+          "fields": null,
+          "memberSchema": {
+            "type": "STRING",
+            "fields": null,
+            "memberSchema": null
+          }
+        }
+      },
+      {
+        "name": "AREAID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "REVISION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "AUTHOR",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "AGGREGATED_AREA_HAS_THIRDPARTY_DELETE",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE TABLE AGGREGATED_AREA_HAS_THIRDPARTY_DELETE WITH (KAFKA_TOPIC='AGGREGATED_AREA_HAS_THIRDPARTY_DELETE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  COLLECT_SET(A.BEFORE->THIRDPARTYSYSTEMID) ENRICHOBJECTSID,\n  A.BEFORE->AREAID ID,\n  LATEST_BY_OFFSET(A.BEFORE->AREAID) AREAID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR\nFROM STREAM_AREA_HAS_THIRDPARTYSYSTEM A\nINNER JOIN STREAM_HISTORICALOBJECTREVISION REVISIONOBJECT WITHIN 3 SECONDS ON ((A.BEFORE->AREAID = REVISIONOBJECT.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_REVISION REVISION WITHIN 3 SECONDS ON ((REVISIONOBJECT.AFTER->REVISIONID = REVISION.AFTER->IDREVISION))\nWINDOW SESSION ( 3 SECONDS ) \nWHERE (A.OP = 'd')\nGROUP BY A.BEFORE->AREAID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_AREA_HAS_THIRDPARTY_DELETE_45",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_AREA_HAS_THIRDPARTY_DELETE_45-L_Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 8176,
+                "logEndOffset": 8176,
+                "consumerOffset": 8176
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.Area_has_ThirdPartySystem",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 7963,
+                "logEndOffset": 7976,
+                "consumerOffset": 7976
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_AREA_HAS_THIRDPARTY_DELETE_45-L_Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 35840,
+                "logEndOffset": 35840,
+                "consumerOffset": 35840
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.revision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 11446920,
+                "logEndOffset": 11447080,
+                "consumerOffset": 11447080
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_AREA_HAS_THIRDPARTY_DELETE_45-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 220,
+                "logEndOffset": 220,
+                "consumerOffset": 220
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_AREA_HAS_THIRDPARTY_DELETE_45-Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 119449,
+                "logEndOffset": 119449,
+                "consumerOffset": 119449
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.HistoricalObjectRevision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 31926,
+                "logEndOffset": 31963,
+                "consumerOffset": 31963
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_AREA_HAS_THIRDPARTY_DELETE_45-Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 299,
+                "logEndOffset": 299,
+                "consumerOffset": 299
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_DELETE",
+    "windowType": "SESSION",
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE TABLE AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_DELETE WITH (KAFKA_TOPIC='AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_DELETE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  COLLECT_SET(A.BEFORE->ISPID) ENRICHOBJECTSID,\n  A.BEFORE->AREAID ID,\n  LATEST_BY_OFFSET(A.BEFORE->AREAID) AREAID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR\nFROM STREAM_AREA_HAS_COMMERCIALPROVIDER A\nINNER JOIN STREAM_HISTORICALOBJECTREVISION REVISIONOBJECT WITHIN 3 SECONDS ON ((A.BEFORE->AREAID = REVISIONOBJECT.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_REVISION REVISION WITHIN 3 SECONDS ON ((REVISIONOBJECT.AFTER->REVISIONID = REVISION.AFTER->IDREVISION))\nWINDOW SESSION ( 3 SECONDS ) \nWHERE (A.OP = 'd')\nGROUP BY A.BEFORE->AREAID\nEMIT CHANGES;",
+        "sinks": [
+          "AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_DELETE"
+        ],
+        "sinkKafkaTopics": [
+          "AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_DELETE"
+        ],
+        "id": "CTAS_AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_DELETE_37",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "ID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "ENRICHOBJECTSID",
+        "schema": {
+          "type": "ARRAY",
+          "fields": null,
+          "memberSchema": {
+            "type": "STRING",
+            "fields": null,
+            "memberSchema": null
+          }
+        }
+      },
+      {
+        "name": "AREAID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "REVISION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "AUTHOR",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "KAFKA",
+    "valueFormat": "JSON",
+    "topic": "AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_DELETE",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE TABLE AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_DELETE WITH (KAFKA_TOPIC='AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_DELETE', PARTITIONS=1, REPLICAS=1) AS SELECT\n  COLLECT_SET(A.BEFORE->ISPID) ENRICHOBJECTSID,\n  A.BEFORE->AREAID ID,\n  LATEST_BY_OFFSET(A.BEFORE->AREAID) AREAID,\n  LATEST_BY_OFFSET(REVISIONOBJECT.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR\nFROM STREAM_AREA_HAS_COMMERCIALPROVIDER A\nINNER JOIN STREAM_HISTORICALOBJECTREVISION REVISIONOBJECT WITHIN 3 SECONDS ON ((A.BEFORE->AREAID = REVISIONOBJECT.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_REVISION REVISION WITHIN 3 SECONDS ON ((REVISIONOBJECT.AFTER->REVISIONID = REVISION.AFTER->IDREVISION))\nWINDOW SESSION ( 3 SECONDS ) \nWHERE (A.OP = 'd')\nGROUP BY A.BEFORE->AREAID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_DELETE_37",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.revision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 11446920,
+                "logEndOffset": 11447080,
+                "consumerOffset": 11447080
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_DELETE_37-Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 107600,
+                "logEndOffset": 107600,
+                "consumerOffset": 107600
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_DELETE_37-L_Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 13546,
+                "logEndOffset": 13546,
+                "consumerOffset": 13546
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.HistoricalObjectRevision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 31926,
+                "logEndOffset": 31963,
+                "consumerOffset": 31963
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_core_qc.Area_has_CommercialProvider",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 12098,
+                "logEndOffset": 12264,
+                "consumerOffset": 12264
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_DELETE_37-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 578,
+                "logEndOffset": 578,
+                "consumerOffset": 578
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_DELETE_37-L_Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 38068,
+                "logEndOffset": 38068,
+                "consumerOffset": 38068
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_AREA_HAS_COMMERCIALPROVIDER_DELETE_37-Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 921,
+                "logEndOffset": 921,
+                "consumerOffset": 921
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "AGGREGATED_USERPARTNER_DELETED_ORGANIZATIONS_TIMING",
+    "windowType": "SESSION",
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE TABLE AGGREGATED_USERPARTNER_DELETED_ORGANIZATIONS_TIMING WITH (KAFKA_TOPIC='AGGREGATED_USERPARTNER_DELETED_ORGANIZATIONS_TIMING', KEY_FORMAT='JSON', PARTITIONS=1, REPLICAS=1) AS SELECT\n  UP.BEFORE->USERID USERIDKEY,\n  OBJECTREVISION.AFTER->REVISIONID REVISIONKEY,\n  COLLECT_LIST(UP.BEFORE->PARTNERID) ENRICHOBJECTSID,\n  LATEST_BY_OFFSET(UP.BEFORE->USERID) USERID,\n  LATEST_BY_OFFSET(OBJECTREVISION.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR,\n  LATEST_BY_OFFSET(REVISION.AFTER->ACTIONTYPE) ACTIONTYPE,\n  COLLECT_LIST(UP.SOURCE->TS_MS) MYSQL_MAIN_OBJECT_SERIES_TS_MS,\n  LATEST_BY_OFFSET(REVISION.SOURCE->TS_MS) MYSQL_REVISION_TS_MS\nFROM STREAM_USER_PARTNERS_TIMING UP\nINNER JOIN STREAM_AUTH_HISTORICALOBJECTREVISION_TIMING OBJECTREVISION WITHIN 15 SECONDS ON ((UP.BEFORE->USERID = OBJECTREVISION.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_AUTH_REVISION_TIMING REVISION WITHIN 15 SECONDS ON ((OBJECTREVISION.AFTER->REVISIONID = REVISION.AFTER->ID))\nWINDOW SESSION ( 15 SECONDS ) \nWHERE (UP.OP = 'd')\nGROUP BY UP.BEFORE->USERID, OBJECTREVISION.AFTER->REVISIONID\nEMIT CHANGES;",
+        "sinks": [
+          "AGGREGATED_USERPARTNER_DELETED_ORGANIZATIONS_TIMING"
+        ],
+        "sinkKafkaTopics": [
+          "AGGREGATED_USERPARTNER_DELETED_ORGANIZATIONS_TIMING"
+        ],
+        "id": "CTAS_AGGREGATED_USERPARTNER_DELETED_ORGANIZATIONS_TIMING_689",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "KSQL_COL_0",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "ENRICHOBJECTSID",
+        "schema": {
+          "type": "ARRAY",
+          "fields": null,
+          "memberSchema": {
+            "type": "STRING",
+            "fields": null,
+            "memberSchema": null
+          }
+        }
+      },
+      {
+        "name": "USERID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "REVISION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "AUTHOR",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "ACTIONTYPE",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "MYSQL_MAIN_OBJECT_SERIES_TS_MS",
+        "schema": {
+          "type": "ARRAY",
+          "fields": null,
+          "memberSchema": {
+            "type": "BIGINT",
+            "fields": null,
+            "memberSchema": null
+          }
+        }
+      },
+      {
+        "name": "MYSQL_REVISION_TS_MS",
+        "schema": {
+          "type": "BIGINT",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "JSON",
+    "valueFormat": "JSON",
+    "topic": "AGGREGATED_USERPARTNER_DELETED_ORGANIZATIONS_TIMING",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE TABLE AGGREGATED_USERPARTNER_DELETED_ORGANIZATIONS_TIMING WITH (KAFKA_TOPIC='AGGREGATED_USERPARTNER_DELETED_ORGANIZATIONS_TIMING', KEY_FORMAT='JSON', PARTITIONS=1, REPLICAS=1) AS SELECT\n  UP.BEFORE->USERID USERIDKEY,\n  OBJECTREVISION.AFTER->REVISIONID REVISIONKEY,\n  COLLECT_LIST(UP.BEFORE->PARTNERID) ENRICHOBJECTSID,\n  LATEST_BY_OFFSET(UP.BEFORE->USERID) USERID,\n  LATEST_BY_OFFSET(OBJECTREVISION.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR,\n  LATEST_BY_OFFSET(REVISION.AFTER->ACTIONTYPE) ACTIONTYPE,\n  COLLECT_LIST(UP.SOURCE->TS_MS) MYSQL_MAIN_OBJECT_SERIES_TS_MS,\n  LATEST_BY_OFFSET(REVISION.SOURCE->TS_MS) MYSQL_REVISION_TS_MS\nFROM STREAM_USER_PARTNERS_TIMING UP\nINNER JOIN STREAM_AUTH_HISTORICALOBJECTREVISION_TIMING OBJECTREVISION WITHIN 15 SECONDS ON ((UP.BEFORE->USERID = OBJECTREVISION.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_AUTH_REVISION_TIMING REVISION WITHIN 15 SECONDS ON ((OBJECTREVISION.AFTER->REVISIONID = REVISION.AFTER->ID))\nWINDOW SESSION ( 15 SECONDS ) \nWHERE (UP.OP = 'd')\nGROUP BY UP.BEFORE->USERID, OBJECTREVISION.AFTER->REVISIONID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_USERPARTNER_DELETED_ORGANIZATIONS_TIMING_689",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "historical-db.caiwbs_auth.UserPartner",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 2540,
+                "logEndOffset": 2653,
+                "consumerOffset": 2653
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_USERPARTNER_DELETED_ORGANIZATIONS_TIMING_689-L_Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 15724,
+                "logEndOffset": 15724,
+                "consumerOffset": 15724
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_auth.Revision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 11597,
+                "logEndOffset": 11670,
+                "consumerOffset": 11670
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_auth.HistoricalObjectRevision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 11597,
+                "logEndOffset": 11670,
+                "consumerOffset": 11670
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_USERPARTNER_DELETED_ORGANIZATIONS_TIMING_689-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 216,
+                "logEndOffset": 216,
+                "consumerOffset": 216
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_USERPARTNER_DELETED_ORGANIZATIONS_TIMING_689-Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 211,
+                "logEndOffset": 211,
+                "consumerOffset": 211
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_USERPARTNER_DELETED_ORGANIZATIONS_TIMING_689-L_Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 2293,
+                "logEndOffset": 2293,
+                "consumerOffset": 2293
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_USERPARTNER_DELETED_ORGANIZATIONS_TIMING_689-Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 19899,
+                "logEndOffset": 19899,
+                "consumerOffset": 19899
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "AGGREGATED_USERPARTNER_ADDED_ORGANIZATIONS_TIMING",
+    "windowType": "SESSION",
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE TABLE AGGREGATED_USERPARTNER_ADDED_ORGANIZATIONS_TIMING WITH (KAFKA_TOPIC='AGGREGATED_USERPARTNER_ADDED_ORGANIZATIONS_TIMING', KEY_FORMAT='JSON', PARTITIONS=1, REPLICAS=1) AS SELECT\n  UP.AFTER->USERID USERIDKEY,\n  OBJECTREVISION.AFTER->REVISIONID REVISIONKEY,\n  COLLECT_LIST(UP.AFTER->PARTNERID) ENRICHOBJECTSID,\n  LATEST_BY_OFFSET(UP.AFTER->USERID) USERID,\n  LATEST_BY_OFFSET(OBJECTREVISION.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR,\n  LATEST_BY_OFFSET(REVISION.AFTER->ACTIONTYPE) ACTIONTYPE,\n  COLLECT_LIST(UP.SOURCE->TS_MS) MYSQL_MAIN_OBJECT_SERIES_TS_MS,\n  LATEST_BY_OFFSET(REVISION.SOURCE->TS_MS) MYSQL_REVISION_TS_MS\nFROM STREAM_USER_PARTNERS_TIMING UP\nINNER JOIN STREAM_AUTH_HISTORICALOBJECTREVISION_TIMING OBJECTREVISION WITHIN 15 SECONDS ON ((UP.AFTER->USERID = OBJECTREVISION.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_AUTH_REVISION_TIMING REVISION WITHIN 15 SECONDS ON ((OBJECTREVISION.AFTER->REVISIONID = REVISION.AFTER->ID))\nWINDOW SESSION ( 15 SECONDS ) \nWHERE (UP.OP = 'c')\nGROUP BY UP.AFTER->USERID, OBJECTREVISION.AFTER->REVISIONID\nEMIT CHANGES;",
+        "sinks": [
+          "AGGREGATED_USERPARTNER_ADDED_ORGANIZATIONS_TIMING"
+        ],
+        "sinkKafkaTopics": [
+          "AGGREGATED_USERPARTNER_ADDED_ORGANIZATIONS_TIMING"
+        ],
+        "id": "CTAS_AGGREGATED_USERPARTNER_ADDED_ORGANIZATIONS_TIMING_677",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "KSQL_COL_0",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "ENRICHOBJECTSID",
+        "schema": {
+          "type": "ARRAY",
+          "fields": null,
+          "memberSchema": {
+            "type": "STRING",
+            "fields": null,
+            "memberSchema": null
+          }
+        }
+      },
+      {
+        "name": "USERID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "REVISION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "AUTHOR",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "ACTIONTYPE",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "MYSQL_MAIN_OBJECT_SERIES_TS_MS",
+        "schema": {
+          "type": "ARRAY",
+          "fields": null,
+          "memberSchema": {
+            "type": "BIGINT",
+            "fields": null,
+            "memberSchema": null
+          }
+        }
+      },
+      {
+        "name": "MYSQL_REVISION_TS_MS",
+        "schema": {
+          "type": "BIGINT",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "JSON",
+    "valueFormat": "JSON",
+    "topic": "AGGREGATED_USERPARTNER_ADDED_ORGANIZATIONS_TIMING",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE TABLE AGGREGATED_USERPARTNER_ADDED_ORGANIZATIONS_TIMING WITH (KAFKA_TOPIC='AGGREGATED_USERPARTNER_ADDED_ORGANIZATIONS_TIMING', KEY_FORMAT='JSON', PARTITIONS=1, REPLICAS=1) AS SELECT\n  UP.AFTER->USERID USERIDKEY,\n  OBJECTREVISION.AFTER->REVISIONID REVISIONKEY,\n  COLLECT_LIST(UP.AFTER->PARTNERID) ENRICHOBJECTSID,\n  LATEST_BY_OFFSET(UP.AFTER->USERID) USERID,\n  LATEST_BY_OFFSET(OBJECTREVISION.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR,\n  LATEST_BY_OFFSET(REVISION.AFTER->ACTIONTYPE) ACTIONTYPE,\n  COLLECT_LIST(UP.SOURCE->TS_MS) MYSQL_MAIN_OBJECT_SERIES_TS_MS,\n  LATEST_BY_OFFSET(REVISION.SOURCE->TS_MS) MYSQL_REVISION_TS_MS\nFROM STREAM_USER_PARTNERS_TIMING UP\nINNER JOIN STREAM_AUTH_HISTORICALOBJECTREVISION_TIMING OBJECTREVISION WITHIN 15 SECONDS ON ((UP.AFTER->USERID = OBJECTREVISION.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_AUTH_REVISION_TIMING REVISION WITHIN 15 SECONDS ON ((OBJECTREVISION.AFTER->REVISIONID = REVISION.AFTER->ID))\nWINDOW SESSION ( 15 SECONDS ) \nWHERE (UP.OP = 'c')\nGROUP BY UP.AFTER->USERID, OBJECTREVISION.AFTER->REVISIONID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_USERPARTNER_ADDED_ORGANIZATIONS_TIMING_677",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "historical-db.caiwbs_auth.UserPartner",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 2540,
+                "logEndOffset": 2653,
+                "consumerOffset": 2653
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_auth.Revision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 11597,
+                "logEndOffset": 11670,
+                "consumerOffset": 11670
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_USERPARTNER_ADDED_ORGANIZATIONS_TIMING_677-L_Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 2894,
+                "logEndOffset": 2894,
+                "consumerOffset": 2894
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_auth.HistoricalObjectRevision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 11597,
+                "logEndOffset": 11670,
+                "consumerOffset": 11670
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_USERPARTNER_ADDED_ORGANIZATIONS_TIMING_677-Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 18611,
+                "logEndOffset": 18611,
+                "consumerOffset": 18611
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_USERPARTNER_ADDED_ORGANIZATIONS_TIMING_677-L_Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 16959,
+                "logEndOffset": 16959,
+                "consumerOffset": 16959
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_USERPARTNER_ADDED_ORGANIZATIONS_TIMING_677-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 396,
+                "logEndOffset": 396,
+                "consumerOffset": 396
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_USERPARTNER_ADDED_ORGANIZATIONS_TIMING_677-Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 874,
+                "logEndOffset": 874,
+                "consumerOffset": 874
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "AGGREGATED_USERROLE_DELETED_ROLES_TIMING",
+    "windowType": "SESSION",
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE TABLE AGGREGATED_USERROLE_DELETED_ROLES_TIMING WITH (KAFKA_TOPIC='AGGREGATED_USERROLE_DELETED_ROLES_TIMING', KEY_FORMAT='JSON', PARTITIONS=1, REPLICAS=1) AS SELECT\n  UROLE.BEFORE->USERID USERIDKEY,\n  OBJECTREVISION.AFTER->REVISIONID REVISIONKEY,\n  COLLECT_LIST(UROLE.BEFORE->ROLEID) ENRICHOBJECTSID,\n  LATEST_BY_OFFSET(UROLE.BEFORE->USERID) USERID,\n  LATEST_BY_OFFSET(OBJECTREVISION.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR,\n  LATEST_BY_OFFSET(REVISION.AFTER->ACTIONTYPE) ACTIONTYPE,\n  COLLECT_LIST(UROLE.SOURCE->TS_MS) MYSQL_MAIN_OBJECT_SERIES_TS_MS,\n  LATEST_BY_OFFSET(REVISION.SOURCE->TS_MS) MYSQL_REVISION_TS_MS\nFROM STREAM_USER_ROLES_TIMING UROLE\nINNER JOIN STREAM_AUTH_HISTORICALOBJECTREVISION_TIMING OBJECTREVISION WITHIN 15 SECONDS ON ((UROLE.BEFORE->USERID = OBJECTREVISION.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_AUTH_REVISION_TIMING REVISION WITHIN 15 SECONDS ON ((OBJECTREVISION.AFTER->REVISIONID = REVISION.AFTER->ID))\nWINDOW SESSION ( 15 SECONDS ) \nWHERE (UROLE.OP = 'd')\nGROUP BY UROLE.BEFORE->USERID, OBJECTREVISION.AFTER->REVISIONID\nEMIT CHANGES;",
+        "sinks": [
+          "AGGREGATED_USERROLE_DELETED_ROLES_TIMING"
+        ],
+        "sinkKafkaTopics": [
+          "AGGREGATED_USERROLE_DELETED_ROLES_TIMING"
+        ],
+        "id": "CTAS_AGGREGATED_USERROLE_DELETED_ROLES_TIMING_683",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "KSQL_COL_0",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "ENRICHOBJECTSID",
+        "schema": {
+          "type": "ARRAY",
+          "fields": null,
+          "memberSchema": {
+            "type": "STRING",
+            "fields": null,
+            "memberSchema": null
+          }
+        }
+      },
+      {
+        "name": "USERID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "REVISION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "AUTHOR",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "ACTIONTYPE",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "MYSQL_MAIN_OBJECT_SERIES_TS_MS",
+        "schema": {
+          "type": "ARRAY",
+          "fields": null,
+          "memberSchema": {
+            "type": "BIGINT",
+            "fields": null,
+            "memberSchema": null
+          }
+        }
+      },
+      {
+        "name": "MYSQL_REVISION_TS_MS",
+        "schema": {
+          "type": "BIGINT",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "JSON",
+    "valueFormat": "JSON",
+    "topic": "AGGREGATED_USERROLE_DELETED_ROLES_TIMING",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE TABLE AGGREGATED_USERROLE_DELETED_ROLES_TIMING WITH (KAFKA_TOPIC='AGGREGATED_USERROLE_DELETED_ROLES_TIMING', KEY_FORMAT='JSON', PARTITIONS=1, REPLICAS=1) AS SELECT\n  UROLE.BEFORE->USERID USERIDKEY,\n  OBJECTREVISION.AFTER->REVISIONID REVISIONKEY,\n  COLLECT_LIST(UROLE.BEFORE->ROLEID) ENRICHOBJECTSID,\n  LATEST_BY_OFFSET(UROLE.BEFORE->USERID) USERID,\n  LATEST_BY_OFFSET(OBJECTREVISION.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR,\n  LATEST_BY_OFFSET(REVISION.AFTER->ACTIONTYPE) ACTIONTYPE,\n  COLLECT_LIST(UROLE.SOURCE->TS_MS) MYSQL_MAIN_OBJECT_SERIES_TS_MS,\n  LATEST_BY_OFFSET(REVISION.SOURCE->TS_MS) MYSQL_REVISION_TS_MS\nFROM STREAM_USER_ROLES_TIMING UROLE\nINNER JOIN STREAM_AUTH_HISTORICALOBJECTREVISION_TIMING OBJECTREVISION WITHIN 15 SECONDS ON ((UROLE.BEFORE->USERID = OBJECTREVISION.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_AUTH_REVISION_TIMING REVISION WITHIN 15 SECONDS ON ((OBJECTREVISION.AFTER->REVISIONID = REVISION.AFTER->ID))\nWINDOW SESSION ( 15 SECONDS ) \nWHERE (UROLE.OP = 'd')\nGROUP BY UROLE.BEFORE->USERID, OBJECTREVISION.AFTER->REVISIONID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_USERROLE_DELETED_ROLES_TIMING_683",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_USERROLE_DELETED_ROLES_TIMING_683-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 44,
+                "logEndOffset": 44,
+                "consumerOffset": 44
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_auth.Revision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 11597,
+                "logEndOffset": 11670,
+                "consumerOffset": 11670
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_auth.HistoricalObjectRevision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 11597,
+                "logEndOffset": 11670,
+                "consumerOffset": 11670
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_USERROLE_DELETED_ROLES_TIMING_683-Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 23106,
+                "logEndOffset": 23106,
+                "consumerOffset": 23106
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_auth.AspNetUserRoles",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 1951,
+                "logEndOffset": 1986,
+                "consumerOffset": 1986
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_USERROLE_DELETED_ROLES_TIMING_683-Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 44,
+                "logEndOffset": 44,
+                "consumerOffset": 44
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_USERROLE_DELETED_ROLES_TIMING_683-L_Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 2074,
+                "logEndOffset": 2074,
+                "consumerOffset": 2074
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_USERROLE_DELETED_ROLES_TIMING_683-L_Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 15155,
+                "logEndOffset": 15155,
+                "consumerOffset": 15155
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "AGGREGATED_USERROLE_ADDED_ROLES_TIMING",
+    "windowType": "SESSION",
+    "readQueries": [],
+    "writeQueries": [
+      {
+        "queryString": "CREATE TABLE AGGREGATED_USERROLE_ADDED_ROLES_TIMING WITH (KAFKA_TOPIC='AGGREGATED_USERROLE_ADDED_ROLES_TIMING', KEY_FORMAT='JSON', PARTITIONS=1, REPLICAS=1) AS SELECT\n  UROLE.AFTER->USERID USERIDKEY,\n  OBJECTREVISION.AFTER->REVISIONID REVISIONKEY,\n  COLLECT_LIST(UROLE.AFTER->ROLEID) ENRICHOBJECTSID,\n  LATEST_BY_OFFSET(UROLE.AFTER->USERID) USERID,\n  LATEST_BY_OFFSET(OBJECTREVISION.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR,\n  LATEST_BY_OFFSET(REVISION.AFTER->ACTIONTYPE) ACTIONTYPE,\n  COLLECT_LIST(UROLE.SOURCE->TS_MS) MYSQL_MAIN_OBJECT_SERIES_TS_MS,\n  LATEST_BY_OFFSET(REVISION.SOURCE->TS_MS) MYSQL_REVISION_TS_MS\nFROM STREAM_USER_ROLES_TIMING UROLE\nINNER JOIN STREAM_AUTH_HISTORICALOBJECTREVISION_TIMING OBJECTREVISION WITHIN 15 SECONDS ON ((UROLE.AFTER->USERID = OBJECTREVISION.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_AUTH_REVISION_TIMING REVISION WITHIN 15 SECONDS ON ((OBJECTREVISION.AFTER->REVISIONID = REVISION.AFTER->ID))\nWINDOW SESSION ( 15 SECONDS ) \nWHERE (UROLE.OP = 'c')\nGROUP BY UROLE.AFTER->USERID, OBJECTREVISION.AFTER->REVISIONID\nEMIT CHANGES;",
+        "sinks": [
+          "AGGREGATED_USERROLE_ADDED_ROLES_TIMING"
+        ],
+        "sinkKafkaTopics": [
+          "AGGREGATED_USERROLE_ADDED_ROLES_TIMING"
+        ],
+        "id": "CTAS_AGGREGATED_USERROLE_ADDED_ROLES_TIMING_681",
+        "statusCount": {
+          "RUNNING": 1
+        },
+        "queryType": "PERSISTENT",
+        "state": "RUNNING"
+      }
+    ],
+    "fields": [
+      {
+        "name": "KSQL_COL_0",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        },
+        "type": "KEY"
+      },
+      {
+        "name": "ENRICHOBJECTSID",
+        "schema": {
+          "type": "ARRAY",
+          "fields": null,
+          "memberSchema": {
+            "type": "STRING",
+            "fields": null,
+            "memberSchema": null
+          }
+        }
+      },
+      {
+        "name": "USERID",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "REVISION",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "AUTHOR",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "ACTIONTYPE",
+        "schema": {
+          "type": "STRING",
+          "fields": null,
+          "memberSchema": null
+        }
+      },
+      {
+        "name": "MYSQL_MAIN_OBJECT_SERIES_TS_MS",
+        "schema": {
+          "type": "ARRAY",
+          "fields": null,
+          "memberSchema": {
+            "type": "BIGINT",
+            "fields": null,
+            "memberSchema": null
+          }
+        }
+      },
+      {
+        "name": "MYSQL_REVISION_TS_MS",
+        "schema": {
+          "type": "BIGINT",
+          "fields": null,
+          "memberSchema": null
+        }
+      }
+    ],
+    "type": "TABLE",
+    "timestamp": "",
+    "statistics": "",
+    "errorStats": "",
+    "extended": true,
+    "keyFormat": "JSON",
+    "valueFormat": "JSON",
+    "topic": "AGGREGATED_USERROLE_ADDED_ROLES_TIMING",
+    "partitions": 1,
+    "replication": 1,
+    "statement": "CREATE TABLE AGGREGATED_USERROLE_ADDED_ROLES_TIMING WITH (KAFKA_TOPIC='AGGREGATED_USERROLE_ADDED_ROLES_TIMING', KEY_FORMAT='JSON', PARTITIONS=1, REPLICAS=1) AS SELECT\n  UROLE.AFTER->USERID USERIDKEY,\n  OBJECTREVISION.AFTER->REVISIONID REVISIONKEY,\n  COLLECT_LIST(UROLE.AFTER->ROLEID) ENRICHOBJECTSID,\n  LATEST_BY_OFFSET(UROLE.AFTER->USERID) USERID,\n  LATEST_BY_OFFSET(OBJECTREVISION.AFTER->REVISIONID) REVISION,\n  LATEST_BY_OFFSET(REVISION.AFTER->AUTHOR) AUTHOR,\n  LATEST_BY_OFFSET(REVISION.AFTER->ACTIONTYPE) ACTIONTYPE,\n  COLLECT_LIST(UROLE.SOURCE->TS_MS) MYSQL_MAIN_OBJECT_SERIES_TS_MS,\n  LATEST_BY_OFFSET(REVISION.SOURCE->TS_MS) MYSQL_REVISION_TS_MS\nFROM STREAM_USER_ROLES_TIMING UROLE\nINNER JOIN STREAM_AUTH_HISTORICALOBJECTREVISION_TIMING OBJECTREVISION WITHIN 15 SECONDS ON ((UROLE.AFTER->USERID = OBJECTREVISION.AFTER->OBJECTREFERENCEID))\nINNER JOIN STREAM_AUTH_REVISION_TIMING REVISION WITHIN 15 SECONDS ON ((OBJECTREVISION.AFTER->REVISIONID = REVISION.AFTER->ID))\nWINDOW SESSION ( 15 SECONDS ) \nWHERE (UROLE.OP = 'c')\nGROUP BY UROLE.AFTER->USERID, OBJECTREVISION.AFTER->REVISIONID\nEMIT CHANGES;",
+    "queryOffsetSummaries": [
+      {
+        "groupId": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_USERROLE_ADDED_ROLES_TIMING_681",
+        "topicSummaries": [
+          {
+            "kafkaTopic": "historical-db.caiwbs_auth.Revision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 11597,
+                "logEndOffset": 11670,
+                "consumerOffset": 11670
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_auth.HistoricalObjectRevision",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 11597,
+                "logEndOffset": 11670,
+                "consumerOffset": 11670
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "historical-db.caiwbs_auth.AspNetUserRoles",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 1951,
+                "logEndOffset": 1986,
+                "consumerOffset": 1986
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_USERROLE_ADDED_ROLES_TIMING_681-L_Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 13671,
+                "logEndOffset": 13671,
+                "consumerOffset": 13671
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_USERROLE_ADDED_ROLES_TIMING_681-Aggregate-GroupBy-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 216,
+                "logEndOffset": 216,
+                "consumerOffset": 216
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_USERROLE_ADDED_ROLES_TIMING_681-Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 615,
+                "logEndOffset": 615,
+                "consumerOffset": 615
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_USERROLE_ADDED_ROLES_TIMING_681-L_Join-left-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 1929,
+                "logEndOffset": 1929,
+                "consumerOffset": 1929
+              }
+            ]
+          },
+          {
+            "kafkaTopic": "_confluent-ksql-dfn-bs-historical-ksqlquery_CTAS_AGGREGATED_USERROLE_ADDED_ROLES_TIMING_681-Join-right-repartition",
+            "offsets": [
+              {
+                "partition": 0,
+                "logStartOffset": 18951,
+                "logEndOffset": 18951,
+                "consumerOffset": 18951
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
