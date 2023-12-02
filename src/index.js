@@ -7,7 +7,7 @@ const { KsqlService } = require('./services/ksql-service');
 const { FileService } = require('./services/file-service');
 
 // main method
-main(Constants.StreamType, 0).then(r => console.log('DONE!'));
+main(Constants.TableType, 0).then(r => console.log('DONE!'));
 
 // functions
 async function main(type, step) {
